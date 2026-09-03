@@ -1,1 +1,1933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
 
+<title>BE GHAYR — DROP 001</title>
+
+<style>
+:root{
+  --black:#050505;
+  --white:#ffffff;
+  --grey:#777;
+  --light:#f3f3f1;
+  --border:#dedede;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--white);
+  color:var(--black);
+  overflow-x:hidden;
+}
+
+button,input,select{
+  font:inherit;
+}
+
+button,
+a{
+  -webkit-tap-highlight-color:transparent;
+}
+
+a{
+  color:inherit;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  height:72px;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  padding:0 18px;
+  border-bottom:1px solid #ececec;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(10px);
+  position:sticky;
+  top:0;
+  z-index:500;
+}
+
+.icon-button{
+  border:0;
+  background:none;
+  width:42px;
+  height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+}
+
+.menu-button{
+  justify-self:start;
+}
+
+.logo{
+  text-align:center;
+  cursor:pointer;
+}
+
+.logo-main{
+  display:block;
+  font-size:19px;
+  font-weight:800;
+  letter-spacing:5px;
+}
+
+.logo-sub{
+  display:block;
+  font-size:8px;
+  letter-spacing:5px;
+  margin-top:4px;
+}
+
+.header-right{
+  justify-self:end;
+  display:flex;
+  align-items:center;
+}
+
+.cart-button{
+  position:relative;
+}
+
+.cart-count{
+  width:17px;
+  height:17px;
+  background:#000;
+  color:#fff;
+  border-radius:50%;
+  font-size:9px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:absolute;
+  top:2px;
+  right:0;
+}
+
+/* =========================
+   MENU
+========================= */
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.52);
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  z-index:800;
+}
+
+.overlay.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.menu-drawer{
+  position:fixed;
+  width:88%;
+  max-width:420px;
+  height:100%;
+  left:-100%;
+  top:0;
+  background:#fff;
+  z-index:900;
+  transition:.35s ease;
+  padding:25px;
+}
+
+.menu-drawer.active{
+  left:0;
+}
+
+.menu-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.menu-brand{
+  font-weight:800;
+  letter-spacing:4px;
+}
+
+.close{
+  border:0;
+  background:none;
+  font-size:31px;
+  cursor:pointer;
+}
+
+.menu-links{
+  margin-top:70px;
+}
+
+.menu-links a{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  text-decoration:none;
+  font-size:26px;
+  padding:19px 0;
+  border-bottom:1px solid #ededed;
+}
+
+.menu-bottom{
+  position:absolute;
+  left:25px;
+  right:25px;
+  bottom:30px;
+}
+
+.menu-bottom a{
+  display:block;
+  text-decoration:none;
+  margin-top:13px;
+  font-size:12px;
+  letter-spacing:1.5px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  height:calc(100vh - 72px);
+  min-height:620px;
+  position:relative;
+  background:
+    linear-gradient(to top,rgba(0,0,0,.62),rgba(0,0,0,.05)),
+    url("https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1800&q=88");
+  background-size:cover;
+  background-position:center;
+  color:#fff;
+}
+
+.hero-content{
+  position:absolute;
+  left:21px;
+  right:21px;
+  bottom:44px;
+  max-width:700px;
+}
+
+.hero-tag{
+  font-size:10px;
+  letter-spacing:4px;
+  margin-bottom:15px;
+}
+
+.hero h1{
+  font-size:46px;
+  line-height:.95;
+  letter-spacing:-1px;
+  font-weight:600;
+  margin-bottom:18px;
+}
+
+.hero p{
+  max-width:470px;
+  line-height:1.6;
+  font-size:13px;
+  color:#eee;
+  margin-bottom:25px;
+}
+
+.primary-button{
+  display:inline-flex;
+  min-height:50px;
+  align-items:center;
+  justify-content:center;
+  padding:0 28px;
+  background:#fff;
+  color:#000;
+  text-decoration:none;
+  font-size:11px;
+  letter-spacing:2.5px;
+  border:1px solid #fff;
+}
+
+/* =========================
+   MARQUEE
+========================= */
+
+.marquee{
+  background:#000;
+  color:#fff;
+  overflow:hidden;
+  padding:14px 0;
+  white-space:nowrap;
+}
+
+.marquee-track{
+  display:inline-block;
+  animation:marquee 20s linear infinite;
+}
+
+.marquee span{
+  font-size:10px;
+  letter-spacing:3px;
+  margin-right:65px;
+}
+
+@keyframes marquee{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section{
+  padding:58px 16px;
+}
+
+.section-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:26px;
+}
+
+.eyebrow{
+  font-size:9px;
+  letter-spacing:3px;
+  color:#777;
+  margin-bottom:8px;
+}
+
+.section-head h2{
+  font-size:26px;
+  font-weight:500;
+  letter-spacing:-.5px;
+}
+
+.view-all{
+  font-size:10px;
+  letter-spacing:2px;
+  text-decoration:none;
+  border-bottom:1px solid #000;
+  padding-bottom:3px;
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.product-card{
+  cursor:pointer;
+}
+
+.product-photo{
+  aspect-ratio:3/4;
+  background:#eeeeeb;
+  overflow:hidden;
+  position:relative;
+}
+
+.product-photo img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  transition:.4s;
+}
+
+.product-card:hover img{
+  transform:scale(1.025);
+}
+
+.badge{
+  position:absolute;
+  top:10px;
+  left:10px;
+  padding:7px 9px;
+  background:#fff;
+  font-size:8px;
+  letter-spacing:1.5px;
+}
+
+.product-details{
+  padding:12px 1px 23px;
+}
+
+.product-title{
+  font-size:11px;
+  letter-spacing:.5px;
+  line-height:1.4;
+}
+
+.product-color{
+  color:#888;
+  font-size:10px;
+  margin-top:4px;
+}
+
+.product-price{
+  font-size:11px;
+  margin-top:8px;
+}
+
+/* =========================
+   STATEMENT
+========================= */
+
+.statement{
+  background:#050505;
+  color:#fff;
+  padding:85px 22px;
+}
+
+.statement .eyebrow{
+  color:#777;
+}
+
+.statement h2{
+  font-size:38px;
+  line-height:1.05;
+  font-weight:500;
+  max-width:700px;
+}
+
+.statement p{
+  color:#999;
+  font-size:13px;
+  line-height:1.8;
+  max-width:600px;
+  margin-top:24px;
+}
+
+/* =========================
+   INSTAGRAM
+========================= */
+
+.instagram-section{
+  padding:65px 16px;
+  text-align:center;
+}
+
+.instagram-section h2{
+  font-size:25px;
+  font-weight:500;
+}
+
+.instagram-section p{
+  font-size:12px;
+  color:#777;
+  margin:13px auto 24px;
+}
+
+.instagram-btn{
+  display:inline-flex;
+  min-height:50px;
+  padding:0 28px;
+  align-items:center;
+  border:1px solid #000;
+  text-decoration:none;
+  font-size:10px;
+  letter-spacing:2px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:#050505;
+  color:#fff;
+  padding:60px 21px 35px;
+}
+
+.footer-logo{
+  font-size:25px;
+  letter-spacing:5px;
+  font-weight:700;
+  margin-bottom:40px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
+
+.footer-col h4{
+  font-size:9px;
+  letter-spacing:2px;
+  color:#777;
+  margin-bottom:18px;
+}
+
+.footer-col a{
+  display:block;
+  color:#ccc;
+  text-decoration:none;
+  font-size:12px;
+  margin-bottom:13px;
+}
+
+.footer-bottom{
+  border-top:1px solid #222;
+  margin-top:45px;
+  padding-top:22px;
+  font-size:9px;
+  letter-spacing:2px;
+  color:#666;
+}
+
+/* =========================
+   PRODUCT VIEW
+========================= */
+
+.product-page{
+  position:fixed;
+  inset:0;
+  background:#fff;
+  z-index:1500;
+  display:none;
+  overflow-y:auto;
+}
+
+.product-page.active{
+  display:block;
+}
+
+.product-close{
+  position:fixed;
+  top:15px;
+  right:15px;
+  z-index:1600;
+  background:#fff;
+  border:1px solid #ddd;
+  width:44px;
+  height:44px;
+  font-size:27px;
+}
+
+.product-view-image{
+  width:100%;
+  height:58vh;
+  min-height:440px;
+  background:#eee;
+}
+
+.product-view-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.product-view-info{
+  padding:27px 20px 100px;
+}
+
+.product-view-tag{
+  font-size:9px;
+  letter-spacing:3px;
+  color:#777;
+}
+
+.product-view-info h2{
+  font-size:29px;
+  margin-top:13px;
+  font-weight:500;
+}
+
+.product-view-price{
+  margin-top:8px;
+  font-size:14px;
+}
+
+.product-description{
+  margin-top:25px;
+  color:#555;
+  font-size:13px;
+  line-height:1.7;
+}
+
+.option-label{
+  margin-top:28px;
+  margin-bottom:12px;
+  font-size:9px;
+  letter-spacing:2px;
+}
+
+.size-list{
+  display:flex;
+  gap:8px;
+}
+
+.size-btn{
+  width:55px;
+  height:45px;
+  background:#fff;
+  border:1px solid #ccc;
+}
+
+.size-btn.active{
+  background:#000;
+  color:#fff;
+  border-color:#000;
+}
+
+.details-row{
+  margin-top:30px;
+  border-top:1px solid #ddd;
+}
+
+.detail{
+  padding:17px 0;
+  border-bottom:1px solid #ddd;
+  display:flex;
+  justify-content:space-between;
+  font-size:11px;
+  letter-spacing:1px;
+}
+
+.add-to-cart{
+  width:100%;
+  min-height:55px;
+  background:#000;
+  color:#fff;
+  border:0;
+  margin-top:28px;
+  letter-spacing:2px;
+  font-size:11px;
+}
+
+/* =========================
+   CART
+========================= */
+
+.cart{
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:94%;
+  max-width:430px;
+  height:100%;
+  background:#fff;
+  z-index:2000;
+  transition:.35s;
+  overflow:auto;
+  padding:23px;
+}
+
+.cart.active{
+  right:0;
+}
+
+.cart-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-bottom:20px;
+  border-bottom:1px solid #ddd;
+}
+
+.cart-top h3{
+  font-size:14px;
+  letter-spacing:2px;
+}
+
+.cart-empty{
+  text-align:center;
+  margin-top:90px;
+  color:#888;
+  font-size:13px;
+}
+
+.cart-item{
+  display:grid;
+  grid-template-columns:80px 1fr;
+  gap:14px;
+  padding:17px 0;
+  border-bottom:1px solid #eee;
+}
+
+.cart-item img{
+  width:80px;
+  height:105px;
+  object-fit:cover;
+  background:#eee;
+}
+
+.cart-item-name{
+  font-size:11px;
+  line-height:1.4;
+}
+
+.cart-item-meta{
+  font-size:10px;
+  color:#777;
+  margin:6px 0;
+}
+
+.remove-btn{
+  border:0;
+  background:none;
+  font-size:9px;
+  padding:0;
+  text-decoration:underline;
+}
+
+.cart-summary{
+  padding-top:25px;
+}
+
+.summary-line{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:12px;
+  font-size:12px;
+}
+
+.checkout-btn{
+  width:100%;
+  height:55px;
+  border:0;
+  background:#000;
+  color:#fff;
+  letter-spacing:2px;
+  font-size:10px;
+  margin-top:12px;
+}
+
+/* =========================
+   CHECKOUT
+========================= */
+
+.checkout{
+  position:fixed;
+  inset:0;
+  background:#fff;
+  z-index:2500;
+  display:none;
+  overflow:auto;
+}
+
+.checkout.active{
+  display:block;
+}
+
+.checkout-top{
+  height:70px;
+  border-bottom:1px solid #ddd;
+  padding:0 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.checkout-brand{
+  letter-spacing:3px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.checkout-body{
+  padding:28px 18px 80px;
+  max-width:680px;
+  margin:auto;
+}
+
+.checkout-body h2{
+  font-weight:500;
+  font-size:25px;
+}
+
+.checkout-sub{
+  font-size:11px;
+  color:#777;
+  margin-top:7px;
+  margin-bottom:28px;
+}
+
+.field{
+  margin-bottom:14px;
+}
+
+.field label{
+  display:block;
+  font-size:9px;
+  letter-spacing:1.5px;
+  margin-bottom:8px;
+}
+
+.field input{
+  width:100%;
+  height:50px;
+  border:1px solid #cfcfcf;
+  padding:0 13px;
+  border-radius:0;
+  outline:none;
+}
+
+.field input:focus{
+  border-color:#000;
+}
+
+.payment-heading{
+  font-size:10px;
+  letter-spacing:2px;
+  margin-top:35px;
+  margin-bottom:13px;
+}
+
+.payment-card{
+  border:1px solid #ccc;
+  padding:17px;
+  margin-bottom:9px;
+}
+
+.payment-card label{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:12px;
+}
+
+.cliq-info{
+  display:none;
+  background:#f3f3f1;
+  margin-top:16px;
+  padding:16px;
+}
+
+.cliq-info p{
+  font-size:11px;
+  color:#555;
+  line-height:1.6;
+}
+
+.cliq-line{
+  background:#fff;
+  border:1px solid #ccc;
+  margin-top:13px;
+  padding:13px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.copy-btn{
+  border:0;
+  background:#000;
+  color:#fff;
+  padding:8px 12px;
+  font-size:9px;
+}
+
+.checkout-total{
+  display:flex;
+  justify-content:space-between;
+  padding:24px 0;
+  font-size:14px;
+}
+
+.place-order{
+  width:100%;
+  height:57px;
+  background:#000;
+  color:#fff;
+  border:0;
+  font-size:10px;
+  letter-spacing:2px;
+}
+
+/* =========================
+   WHATSAPP FLOATING
+========================= */
+
+.whatsapp{
+  position:fixed;
+  right:17px;
+  bottom:18px;
+  width:54px;
+  height:54px;
+  background:#000;
+  color:#fff;
+  border-radius:50%;
+  z-index:700;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+
+.whatsapp svg{
+  width:23px;
+  height:23px;
+}
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media(min-width:850px){
+
+  header{
+    height:82px;
+    padding:0 45px;
+  }
+
+  .hero{
+    height:calc(100vh - 82px);
+  }
+
+  .hero-content{
+    left:60px;
+    bottom:60px;
+  }
+
+  .hero h1{
+    font-size:72px;
+  }
+
+  .section{
+    padding:90px 45px;
+  }
+
+  .products{
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+  }
+
+  .statement{
+    padding:120px 55px;
+  }
+
+  .statement h2{
+    font-size:60px;
+  }
+
+  .product-page-inner{
+    display:grid;
+    grid-template-columns:1.25fr 1fr;
+    min-height:100vh;
+  }
+
+  .product-view-image{
+    height:100vh;
+  }
+
+  .product-view-info{
+    padding:120px 60px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay" id="overlay" onclick="closeDrawers()"></div>
+
+<!-- MENU -->
+
+<div class="menu-drawer" id="menuDrawer">
+
+  <div class="menu-top">
+    <div class="menu-brand">BE GHAYR / 001</div>
+    <button class="close" onclick="closeDrawers()">×</button>
+  </div>
+
+  <div class="menu-links">
+
+    <a href="#shop" onclick="closeDrawers()">
+      SHOP
+      <span>→</span>
+    </a>
+
+    <a href="#about" onclick="closeDrawers()">
+      ABOUT
+      <span>→</span>
+    </a>
+
+    <a href="https://www.instagram.com/beghayr.jo/" target="_blank">
+      INSTAGRAM
+      <span>↗</span>
+    </a>
+
+    <a href="https://wa.me/962779283212" target="_blank">
+      WHATSAPP
+      <span>↗</span>
+    </a>
+
+  </div>
+
+  <div class="menu-bottom">
+    <a href="#">SIZE GUIDE</a>
+    <a href="#">SHIPPING & RETURNS</a>
+    <a href="#">CONTACT</a>
+  </div>
+
+</div>
+
+<!-- HEADER -->
+
+<header>
+
+  <button class="icon-button menu-button" onclick="openMenu()" aria-label="Menu">
+
+    <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+      <path d="M3 7H21M3 12H21M3 17H21" stroke="black" stroke-width="1.5"/>
+    </svg>
+
+  </button>
+
+  <div class="logo" onclick="window.scrollTo(0,0)">
+    <span class="logo-main">BE GHAYR</span>
+    <span class="logo-sub">001</span>
+  </div>
+
+  <div class="header-right">
+
+    <button class="icon-button cart-button" onclick="openCart()" aria-label="Cart">
+
+      <svg width="23" height="23" viewBox="0 0 24 24" fill="none">
+        <path d="M4 7H20L18.6 20H5.4L4 7Z" stroke="black" stroke-width="1.4"/>
+        <path d="M9 9V5.5C9 3.6 10.3 2 12 2C13.7 2 15 3.6 15 5.5V9" stroke="black" stroke-width="1.4"/>
+      </svg>
+
+      <span class="cart-count" id="cartCount">0</span>
+
+    </button>
+
+  </div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="hero-tag">
+      BE GHAYR — DROP 001
+    </div>
+
+    <h1>
+      NO<br>
+      STANDARD.
+    </h1>
+
+    <p>
+      Premium oversized streetwear built for those who choose a different direction.
+    </p>
+
+    <a href="#shop" class="primary-button">
+      SHOP DROP 001
+    </a>
+
+  </div>
+
+</section>
+
+<!-- MARQUEE -->
+
+<div class="marquee">
+
+  <div class="marquee-track">
+
+    <span>BE GHAYR / 001</span>
+    <span>NO STANDARD</span>
+    <span>DEVIATE FROM THE EXPECTED</span>
+    <span>DROP 001</span>
+
+    <span>BE GHAYR / 001</span>
+    <span>NO STANDARD</span>
+    <span>DEVIATE FROM THE EXPECTED</span>
+    <span>DROP 001</span>
+
+  </div>
+
+</div>
+
+<!-- PRODUCTS -->
+
+<section class="section" id="shop">
+
+  <div class="section-head">
+
+    <div>
+      <div class="eyebrow">NEW COLLECTION</div>
+      <h2>DROP 001</h2>
+    </div>
+
+    <a href="#shop" class="view-all">
+      VIEW ALL
+    </a>
+
+  </div>
+
+  <div class="products">
+
+    <article class="product-card"
+      onclick="openProduct(
+      'NO STANDARD TEE',
+      'BLACK',
+      29,
+      'https://images.unsplash.com/photo-1583743814966-8936f37f4678?auto=format&fit=crop&w=1000&q=85'
+      )">
+
+      <div class="product-photo">
+
+        <img
+          src="https://images.unsplash.com/photo-1583743814966-8936f37f4678?auto=format&fit=crop&w=1000&q=85"
+          alt="Black oversized tee">
+
+        <span class="badge">DROP 001</span>
+
+      </div>
+
+      <div class="product-details">
+        <div class="product-title">NO STANDARD TEE</div>
+        <div class="product-color">BLACK</div>
+        <div class="product-price">29 JOD</div>
+      </div>
+
+    </article>
+
+
+    <article class="product-card"
+      onclick="openProduct(
+      '001 OVERSIZED TEE',
+      'BONE',
+      29,
+      'https://images.unsplash.com/photo-1627225924765-552d49cf47ad?auto=format&fit=crop&w=1000&q=85'
+      )">
+
+      <div class="product-photo">
+
+        <img
+          src="https://images.unsplash.com/photo-1627225924765-552d49cf47ad?auto=format&fit=crop&w=1000&q=85"
+          alt="Bone oversized tee">
+
+        <span class="badge">NEW</span>
+
+      </div>
+
+      <div class="product-details">
+        <div class="product-title">001 OVERSIZED TEE</div>
+        <div class="product-color">BONE</div>
+        <div class="product-price">29 JOD</div>
+      </div>
+
+    </article>
+
+
+    <article class="product-card"
+      onclick="openProduct(
+      'SIGNATURE TEE',
+      'IRON GREY',
+      32,
+      'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1000&q=85'
+      )">
+
+      <div class="product-photo">
+
+        <img
+          src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1000&q=85"
+          alt="Streetwear tee">
+
+      </div>
+
+      <div class="product-details">
+        <div class="product-title">SIGNATURE TEE</div>
+        <div class="product-color">IRON GREY</div>
+        <div class="product-price">32 JOD</div>
+      </div>
+
+    </article>
+
+
+    <article class="product-card"
+      onclick="openProduct(
+      'BE GHAYR ESSENTIAL TEE',
+      'WHITE',
+      32,
+      'https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=1000&q=85'
+      )">
+
+      <div class="product-photo">
+
+        <img
+          src="https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=1000&q=85"
+          alt="White tee">
+
+      </div>
+
+      <div class="product-details">
+        <div class="product-title">BE GHAYR ESSENTIAL TEE</div>
+        <div class="product-color">WHITE</div>
+        <div class="product-price">32 JOD</div>
+      </div>
+
+    </article>
+
+  </div>
+
+</section>
+
+<!-- BRAND -->
+
+<section class="statement" id="about">
+
+  <div class="eyebrow">
+    BE GHAYR / 001
+  </div>
+
+  <h2>
+    DEVIATE FROM<br>
+    THE EXPECTED.
+  </h2>
+
+  <p>
+    BE GHAYR is a streetwear label built around individuality, premium oversized silhouettes and a minimal visual language.
+  </p>
+
+</section>
+
+<!-- INSTAGRAM -->
+
+<section class="instagram-section">
+
+  <div class="eyebrow">
+    SOCIAL
+  </div>
+
+  <h2>
+    @BEGHAYR.JO
+  </h2>
+
+  <p>
+    Follow the journey, upcoming drops and behind the scenes.
+  </p>
+
+  <a
+    class="instagram-btn"
+    href="https://www.instagram.com/beghayr.jo/"
+    target="_blank">
+
+    FOLLOW ON INSTAGRAM
+
+  </a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="footer-logo">
+    BE GHAYR
+  </div>
+
+  <div class="footer-grid">
+
+    <div class="footer-col">
+
+      <h4>SHOP</h4>
+
+      <a href="#shop">DROP 001</a>
+      <a href="#">SIZE GUIDE</a>
+      <a href="#">SHIPPING</a>
+
+    </div>
+
+    <div class="footer-col">
+
+      <h4>CONNECT</h4>
+
+      <a
+        href="https://www.instagram.com/beghayr.jo/"
+        target="_blank">
+
+        INSTAGRAM
+
+      </a>
+
+      <a
+        href="https://wa.me/962779283212"
+        target="_blank">
+
+        WHATSAPP
+
+      </a>
+
+      <a href="#about">
+        ABOUT
+      </a>
+
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 BE GHAYR — 001
+  </div>
+
+</footer>
+
+<!-- PRODUCT PAGE -->
+
+<div class="product-page" id="productPage">
+
+  <button class="product-close" onclick="closeProduct()">
+    ×
+  </button>
+
+  <div class="product-page-inner">
+
+    <div class="product-view-image">
+      <img id="productImage">
+    </div>
+
+    <div class="product-view-info">
+
+      <div class="product-view-tag">
+        BE GHAYR — DROP 001
+      </div>
+
+      <h2 id="productName"></h2>
+
+      <div class="product-view-price">
+        <span id="productPrice"></span> JOD
+      </div>
+
+      <div class="product-description">
+
+        Premium oversized T-shirt with relaxed proportions,
+        dropped shoulders and a contemporary streetwear silhouette.
+
+      </div>
+
+      <div class="option-label">
+        COLOR
+      </div>
+
+      <div id="productColor"></div>
+
+      <div class="option-label">
+        SELECT SIZE
+      </div>
+
+      <div class="size-list">
+
+        <button class="size-btn" onclick="selectSize(this,'S')">
+          S
+        </button>
+
+        <button class="size-btn" onclick="selectSize(this,'M')">
+          M
+        </button>
+
+        <button class="size-btn" onclick="selectSize(this,'L')">
+          L
+        </button>
+
+        <button class="size-btn" onclick="selectSize(this,'XL')">
+          XL
+        </button>
+
+      </div>
+
+      <button class="add-to-cart" onclick="addToCart()">
+        ADD TO CART
+      </button>
+
+      <div class="details-row">
+
+        <div class="detail">
+          <span>DETAILS</span>
+          <span>+</span>
+        </div>
+
+        <div class="detail">
+          <span>SIZE CHART</span>
+          <span>+</span>
+        </div>
+
+        <div class="detail">
+          <span>SHIPPING POLICY</span>
+          <span>+</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- CART -->
+
+<div class="cart" id="cart">
+
+  <div class="cart-top">
+
+    <h3>YOUR CART</h3>
+
+    <button class="close" onclick="closeCart()">
+      ×
+    </button>
+
+  </div>
+
+  <div id="cartItems"></div>
+
+  <div class="cart-summary" id="cartSummary">
+
+    <div class="summary-line">
+      <span>SUBTOTAL</span>
+      <span id="cartSubtotal">0 JOD</span>
+    </div>
+
+    <div class="summary-line">
+      <span>DELIVERY</span>
+      <span>Calculated at checkout</span>
+    </div>
+
+    <button class="checkout-btn" onclick="openCheckout()">
+      CHECKOUT
+    </button>
+
+  </div>
+
+</div>
+
+<!-- CHECKOUT -->
+
+<div class="checkout" id="checkout">
+
+  <div class="checkout-top">
+
+    <div class="checkout-brand">
+      BE GHAYR / CHECKOUT
+    </div>
+
+    <button class="close" onclick="closeCheckout()">
+      ×
+    </button>
+
+  </div>
+
+  <div class="checkout-body">
+
+    <h2>
+      DELIVERY DETAILS
+    </h2>
+
+    <div class="checkout-sub">
+      Enter your information to complete your order.
+    </div>
+
+    <div class="field">
+      <label>FULL NAME</label>
+      <input id="customerName">
+    </div>
+
+    <div class="field">
+      <label>PHONE NUMBER</label>
+      <input id="customerPhone" type="tel">
+    </div>
+
+    <div class="field">
+      <label>CITY</label>
+      <input id="customerCity" value="Amman">
+    </div>
+
+    <div class="field">
+      <label>DELIVERY ADDRESS</label>
+      <input id="customerAddress">
+    </div>
+
+    <div class="payment-heading">
+      PAYMENT METHOD
+    </div>
+
+    <div class="payment-card">
+
+      <label>
+
+        <input
+        type="radio"
+        name="payment"
+        value="Cash on Delivery"
+        checked
+        onchange="paymentChanged()">
+
+        CASH ON DELIVERY
+
+      </label>
+
+    </div>
+
+    <div class="payment-card">
+
+      <label>
+
+        <input
+        type="radio"
+        name="payment"
+        value="CliQ"
+        onchange="paymentChanged()">
+
+        CLIQ INSTANT PAYMENT
+
+      </label>
+
+      <div class="cliq-info" id="cliqInfo">
+
+        <p>
+          Transfer the exact order amount to the CliQ alias below.
+          Your payment will be manually verified before confirmation.
+        </p>
+
+        <div class="cliq-line">
+
+          <strong>
+            Zaid02R
+          </strong>
+
+          <button
+            class="copy-btn"
+            onclick="copyCliq()">
+
+            COPY
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="checkout-total">
+
+      <strong>
+        ORDER TOTAL
+      </strong>
+
+      <strong id="checkoutTotal">
+        0 JOD
+      </strong>
+
+    </div>
+
+    <button class="place-order" onclick="placeOrder()">
+
+      PLACE ORDER VIA WHATSAPP
+
+    </button>
+
+  </div>
+
+</div>
+
+<!-- FLOATING WHATSAPP -->
+
+<a
+  class="whatsapp"
+  href="https://wa.me/962779283212"
+  target="_blank"
+  aria-label="WhatsApp">
+
+  <svg viewBox="0 0 32 32" fill="none">
+
+    <path
+      d="M16 4C9.4 4 4 9.1 4 15.4C4 17.6 4.7 19.7 5.9 21.5L4.4 27.8L10.9 26.1C12.5 26.9 14.2 27.2 16 27.2C22.6 27.2 28 22.1 28 15.4C28 9.1 22.6 4 16 4Z"
+      stroke="white"
+      stroke-width="1.8"/>
+
+    <path
+      d="M11.1 10.5C11.5 9.9 11.9 9.9 12.3 10L13.7 13.1C13.9 13.5 13.8 13.8 13.5 14.1L12.6 15.1C13.7 17.4 15.4 19 17.8 20L18.8 18.9C19.1 18.6 19.5 18.5 19.9 18.7L22.8 20.1C23.2 20.3 23.3 20.6 23.2 21C22.9 22.5 21.7 23.5 20.2 23.7C17.5 24 14.3 22.3 11.8 19.8C9.3 17.3 7.7 14.4 7.9 11.9C8 11.2 8.5 10.7 9.1 10.5Z"
+      fill="white"/>
+
+  </svg>
+
+</a>
+
+<script>
+
+let cart = [];
+let currentProduct = {};
+let selectedSize = "";
+
+
+/* MENU */
+
+function openMenu(){
+
+  document.getElementById("menuDrawer").classList.add("active");
+  document.getElementById("overlay").classList.add("active");
+
+}
+
+function closeDrawers(){
+
+  document.getElementById("menuDrawer").classList.remove("active");
+  document.getElementById("cart").classList.remove("active");
+  document.getElementById("overlay").classList.remove("active");
+
+}
+
+
+/* PRODUCT */
+
+function openProduct(name,color,price,image){
+
+  currentProduct = {
+    name,
+    color,
+    price,
+    image
+  };
+
+  selectedSize = "";
+
+  document.querySelectorAll(".size-btn")
+  .forEach(btn => btn.classList.remove("active"));
+
+  document.getElementById("productName").innerText = name;
+
+  document.getElementById("productColor").innerText = color;
+
+  document.getElementById("productPrice").innerText = price;
+
+  document.getElementById("productImage").src = image;
+
+  document.getElementById("productPage").classList.add("active");
+
+  document.body.style.overflow = "hidden";
+
+}
+
+function closeProduct(){
+
+  document.getElementById("productPage").classList.remove("active");
+
+  document.body.style.overflow = "";
+
+}
+
+function selectSize(button,size){
+
+  document.querySelectorAll(".size-btn")
+  .forEach(btn => btn.classList.remove("active"));
+
+  button.classList.add("active");
+
+  selectedSize = size;
+
+}
+
+
+/* CART */
+
+function addToCart(){
+
+  if(!selectedSize){
+
+    alert("Please select a size.");
+
+    return;
+
+  }
+
+  cart.push({
+    ...currentProduct,
+    size:selectedSize
+  });
+
+  updateCart();
+
+  closeProduct();
+
+  openCart();
+
+}
+
+function openCart(){
+
+  updateCart();
+
+  document.getElementById("cart").classList.add("active");
+
+  document.getElementById("overlay").classList.add("active");
+
+}
+
+function closeCart(){
+
+  document.getElementById("cart").classList.remove("active");
+
+  document.getElementById("overlay").classList.remove("active");
+
+}
+
+function removeItem(index){
+
+  cart.splice(index,1);
+
+  updateCart();
+
+}
+
+function updateCart(){
+
+  const container =
+    document.getElementById("cartItems");
+
+  const summary =
+    document.getElementById("cartSummary");
+
+  const count =
+    document.getElementById("cartCount");
+
+  count.innerText = cart.length;
+
+  container.innerHTML = "";
+
+  if(cart.length === 0){
+
+    container.innerHTML =
+    '<div class="cart-empty">YOUR CART IS EMPTY.</div>';
+
+    summary.style.display = "none";
+
+    return;
+
+  }
+
+  summary.style.display = "block";
+
+  cart.forEach((item,index)=>{
+
+    container.innerHTML += `
+
+    <div class="cart-item">
+
+      <img src="${item.image}">
+
+      <div>
+
+        <div class="cart-item-name">
+          ${item.name}
+        </div>
+
+        <div class="cart-item-meta">
+          ${item.color} / ${item.size}
+        </div>
+
+        <div class="cart-item-name">
+          ${item.price} JOD
+        </div>
+
+        <button
+          class="remove-btn"
+          onclick="removeItem(${index})">
+
+          REMOVE
+
+        </button>
+
+      </div>
+
+    </div>
+
+    `;
+
+  });
+
+  const total =
+    cart.reduce((sum,item)=>sum + item.price,0);
+
+  document.getElementById("cartSubtotal").innerText =
+    total + " JOD";
+
+  document.getElementById("checkoutTotal").innerText =
+    total + " JOD";
+
+}
+
+
+/* CHECKOUT */
+
+function openCheckout(){
+
+  if(cart.length === 0){
+
+    alert("Your cart is empty.");
+
+    return;
+
+  }
+
+  closeCart();
+
+  document.getElementById("checkout").classList.add("active");
+
+}
+
+function closeCheckout(){
+
+  document.getElementById("checkout").classList.remove("active");
+
+}
+
+function paymentChanged(){
+
+  const method =
+    document.querySelector('input[name="payment"]:checked').value;
+
+  document.getElementById("cliqInfo").style.display =
+    method === "CliQ" ? "block" : "none";
+
+}
+
+function copyCliq(){
+
+  navigator.clipboard.writeText("Zaid02R");
+
+  alert("CliQ Alias copied.");
+
+}
+
+
+/* ORDER */
+
+function placeOrder(){
+
+  const name =
+    document.getElementById("customerName").value.trim();
+
+  const phone =
+    document.getElementById("customerPhone").value.trim();
+
+  const city =
+    document.getElementById("customerCity").value.trim();
+
+  const address =
+    document.getElementById("customerAddress").value.trim();
+
+  if(!name || !phone || !city || !address){
+
+    alert("Please complete your delivery information.");
+
+    return;
+
+  }
+
+  const payment =
+    document.querySelector('input[name="payment"]:checked').value;
+
+  const total =
+    cart.reduce((sum,item)=>sum + item.price,0);
+
+  const orderNumber =
+    "BG-" + Date.now().toString().slice(-6);
+
+  let products = "";
+
+  cart.forEach((item,index)=>{
+
+    products +=
+`${index + 1}. ${item.name}
+Color: ${item.color}
+Size: ${item.size}
+Price: ${item.price} JOD
+
+`;
+
+  });
+
+  let message =
+`BE GHAYR — NEW ORDER
+
+ORDER NUMBER:
+${orderNumber}
+
+CUSTOMER:
+${name}
+
+PHONE:
+${phone}
+
+CITY:
+${city}
+
+ADDRESS:
+${address}
+
+PRODUCTS:
+
+${products}
+TOTAL:
+${total} JOD
+
+PAYMENT METHOD:
+${payment}`;
+
+  if(payment === "CliQ"){
+
+    message += `
+
+CLIQ ALIAS:
+Zaid02R
+
+PAYMENT STATUS:
+Pending Payment Verification`;
+
+  }
+
+  message += `
+
+BE GHAYR / 001`;
+
+  const url =
+    "https://wa.me/962779283212?text=" +
+    encodeURIComponent(message);
+
+  window.location.href = url;
+
+}
+
+updateCart();
+
+</script>
+
+</body>
+</html>
