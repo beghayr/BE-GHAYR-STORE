@@ -1,1 +1,5727 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, viewport-fit=cover"
+>
+
+<meta name="theme-color" content="#050505">
+
+<title>BE GHAYR — DROP 001</title>
+
+<meta
+  name="description"
+  content="BE GHAYR — DROP 001. Different by design."
+>
+
+<link rel="icon" type="image/png" href="favicon.png">
+
+<meta property="og:title" content="BE GHAYR — DROP 001">
+
+<meta
+  property="og:description"
+  content="Different by design. BE GHAYR / 001."
+>
+
+<meta
+  property="og:image"
+  content="https://zaidrj7a-create.github.io/BE-GHAYR-STORE/hero.PNG"
+>
+
+<meta
+  property="og:url"
+  content="https://zaidrj7a-create.github.io/BE-GHAYR-STORE/"
+>
+
+<meta property="og:type" content="website">
+
+
+<style>
+
+/* =========================
+RESET
+========================= */
+
+:root{
+
+  --black:#050505;
+  --white:#f4f3ef;
+  --grey:#777;
+
+}
+
+*{
+
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+
+}
+
+html{
+
+  scroll-behavior:smooth;
+
+}
+
+body{
+
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#050505;
+  color:#fff;
+  overflow-x:hidden;
+
+}
+
+body.lock{
+
+  overflow:hidden;
+
+}
+
+a{
+
+  color:inherit;
+  text-decoration:none;
+
+}
+
+button{
+
+  font:inherit;
+  cursor:pointer;
+
+}
+
+img,
+video{
+
+  display:block;
+  width:100%;
+
+}
+
+
+/* =========================
+LOADING INTRO
+========================= */
+
+.intro{
+
+  position:fixed;
+  inset:0;
+  z-index:99999;
+
+  background:#050505;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  transition:
+    opacity .7s ease,
+    visibility .7s ease;
+
+}
+
+.intro.hide{
+
+  opacity:0;
+  visibility:hidden;
+
+}
+
+.intro-inner{
+
+  text-align:center;
+
+}
+
+.intro-logo{
+
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:7px;
+
+}
+
+.intro-code{
+
+  margin-top:13px;
+
+  font-size:7px;
+  letter-spacing:6px;
+
+  color:#777;
+
+}
+
+.intro-line{
+
+  width:155px;
+  height:1px;
+
+  margin:25px auto 0;
+
+  background:#222;
+
+  overflow:hidden;
+
+}
+
+.intro-line span{
+
+  display:block;
+
+  width:100%;
+  height:100%;
+
+  background:#fff;
+
+  transform:translateX(-100%);
+
+  animation:introLoading 1.35s ease forwards;
+
+}
+
+@keyframes introLoading{
+
+  to{
+
+    transform:translateX(0);
+
+  }
+
+}
+
+
+/* =========================
+HEADER
+========================= */
+
+.header{
+
+  position:fixed;
+
+  top:0;
+  left:0;
+  right:0;
+
+  z-index:1000;
+
+  height:72px;
+
+  padding:0 14px;
+
+  display:grid;
+
+  grid-template-columns:1fr auto 1fr;
+
+  align-items:center;
+
+  transition:.3s ease;
+
+}
+
+.header.scrolled{
+
+  background:rgba(5,5,5,.93);
+
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+
+  border-bottom:
+    1px solid rgba(255,255,255,.08);
+
+}
+
+.icon-btn{
+
+  width:44px;
+  height:44px;
+
+  border:0;
+
+  background:none;
+
+  color:#fff;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+}
+
+.header-right{
+
+  display:flex;
+  justify-content:flex-end;
+
+}
+
+.logo{
+
+  text-align:center;
+  line-height:1;
+
+}
+
+.logo strong{
+
+  display:block;
+
+  font-size:14px;
+  letter-spacing:5px;
+
+}
+
+.logo small{
+
+  display:block;
+
+  margin-top:7px;
+
+  font-size:6px;
+  letter-spacing:5px;
+
+  color:#888;
+
+}
+
+.cart-wrap{
+
+  position:relative;
+
+}
+
+.cart-count{
+
+  position:absolute;
+
+  top:0;
+  right:0;
+
+  min-width:17px;
+  height:17px;
+
+  padding:0 4px;
+
+  border-radius:30px;
+
+  background:#fff;
+  color:#000;
+
+  font-size:8px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+}
+
+
+/* =========================
+HERO
+========================= */
+
+.hero{
+
+  position:relative;
+
+  height:100svh;
+  min-height:650px;
+
+  overflow:hidden;
+
+  background:#111;
+
+}
+
+.hero img{
+
+  position:absolute;
+
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+}
+
+.hero-overlay{
+
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,.94),
+      rgba(0,0,0,.20) 54%,
+      rgba(0,0,0,.20)
+    );
+
+}
+
+.hero-top{
+
+  position:absolute;
+
+  top:96px;
+  left:18px;
+  right:18px;
+
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+
+  color:#ccc;
+
+  font-size:6px;
+  letter-spacing:2.5px;
+
+}
+
+.hero-content{
+
+  position:absolute;
+
+  left:18px;
+  right:18px;
+  bottom:32px;
+
+}
+
+.eyebrow{
+
+  margin-bottom:14px;
+
+  font-size:7px;
+  letter-spacing:3.5px;
+
+}
+
+.hero h1{
+
+  font-size:clamp(58px,18vw,115px);
+
+  line-height:.8;
+
+  letter-spacing:-4px;
+
+  font-weight:500;
+
+}
+
+.hero p{
+
+  max-width:430px;
+
+  margin-top:22px;
+
+  color:#bbb;
+
+  font-size:10px;
+  line-height:1.75;
+
+}
+
+.hero-buttons{
+
+  display:flex;
+
+  gap:8px;
+
+  flex-wrap:wrap;
+
+  margin-top:24px;
+
+}
+
+.btn-white,
+.btn-outline{
+
+  min-height:50px;
+
+  padding:0 20px;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:7px;
+  letter-spacing:2.2px;
+
+}
+
+.btn-white{
+
+  background:#fff;
+  color:#000;
+
+}
+
+.btn-outline{
+
+  border:
+    1px solid rgba(255,255,255,.4);
+
+}
+
+
+/* =========================
+MOVING TEXT
+========================= */
+
+.marquee{
+
+  min-height:190px;
+
+  display:flex;
+  align-items:center;
+
+  overflow:hidden;
+
+  border-top:1px solid #181818;
+  border-bottom:1px solid #181818;
+
+}
+
+.marquee-track{
+
+  display:flex;
+
+  width:max-content;
+
+  animation:marqueeMove 18s linear infinite;
+
+}
+
+.marquee-track span{
+
+  flex:none;
+
+  white-space:nowrap;
+
+  padding-right:5vw;
+
+  font-size:25vw;
+  font-weight:900;
+
+  letter-spacing:-1.4vw;
+  line-height:.7;
+
+  color:#090909;
+
+  -webkit-text-stroke:
+    1px #292929;
+
+}
+
+@keyframes marqueeMove{
+
+  from{
+
+    transform:translateX(0);
+
+  }
+
+  to{
+
+    transform:translateX(-50%);
+
+  }
+
+}
+
+
+/* =========================
+GENERAL SECTIONS
+========================= */
+
+.section{
+
+  padding:72px 13px;
+
+}
+
+.section-head{
+
+  display:flex;
+
+  align-items:flex-end;
+  justify-content:space-between;
+
+  gap:18px;
+
+  margin-bottom:28px;
+
+}
+
+.kicker{
+
+  color:#777;
+
+  font-size:7px;
+  letter-spacing:3px;
+
+  margin-bottom:8px;
+
+}
+
+.section-head h2{
+
+  font-size:31px;
+  font-weight:500;
+
+  letter-spacing:-1px;
+
+}
+
+.section-no{
+
+  color:#777;
+
+  font-size:7px;
+  letter-spacing:2px;
+
+}
+
+
+/* =========================
+DROP 001
+========================= */
+
+.drop-one{
+
+  background:#f3f3ef;
+  color:#050505;
+
+}
+
+.products{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap:7px;
+
+}
+
+.product{
+
+  cursor:pointer;
+
+}
+
+.product-img{
+
+  position:relative;
+
+  aspect-ratio:3/4;
+
+  background:#ddd;
+
+  overflow:hidden;
+
+}
+
+.product-img img{
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  transition:
+    transform .6s ease;
+
+}
+
+.product:hover .product-img img{
+
+  transform:scale(1.025);
+
+}
+
+.badge{
+
+  position:absolute;
+
+  top:8px;
+  left:8px;
+
+  padding:7px 8px;
+
+  background:#fff;
+  color:#000;
+
+  font-size:6px;
+  letter-spacing:1.5px;
+
+}
+
+.product-info{
+
+  padding:10px 1px 25px;
+
+}
+
+.product-name{
+
+  font-size:9px;
+
+}
+
+.product-color{
+
+  margin-top:4px;
+
+  color:#818181;
+
+  font-size:8px;
+
+}
+
+.product-line{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  margin-top:8px;
+
+  font-size:8px;
+
+}
+
+.product-line span:last-child{
+
+  color:#888;
+
+  font-size:6px;
+  letter-spacing:1px;
+
+}
+
+
+/* =========================
+CAMPAIGN FILM
+========================= */
+
+.film{
+
+  padding:72px 13px;
+
+}
+
+.film-head{
+
+  display:flex;
+
+  justify-content:space-between;
+  align-items:flex-end;
+
+  margin-bottom:24px;
+
+}
+
+.film-head small{
+
+  display:block;
+
+  color:#777;
+
+  font-size:7px;
+  letter-spacing:3px;
+
+  margin-bottom:8px;
+
+}
+
+.film-head h2{
+
+  font-size:31px;
+  font-weight:500;
+
+  letter-spacing:-1px;
+
+}
+
+.film-number{
+
+  color:#666;
+
+  font-size:7px;
+  letter-spacing:2px;
+
+}
+
+.film video{
+
+  width:100%;
+
+  max-height:82svh;
+
+  object-fit:contain;
+
+  background:#000;
+
+}
+
+
+/* =========================
+CAMPAIGN
+========================= */
+
+.campaign{
+
+  position:relative;
+
+  min-height:88svh;
+
+  overflow:hidden;
+
+}
+
+.campaign img{
+
+  width:100%;
+
+  height:88svh;
+  min-height:620px;
+
+  object-fit:cover;
+
+}
+
+.campaign:after{
+
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,.94),
+      rgba(0,0,0,.08) 62%
+    );
+
+}
+
+.campaign-text{
+
+  position:absolute;
+
+  z-index:2;
+
+  left:18px;
+  right:18px;
+  bottom:35px;
+
+}
+
+.campaign-text small{
+
+  font-size:7px;
+  letter-spacing:3px;
+
+}
+
+.campaign-text h2{
+
+  margin-top:13px;
+
+  font-size:48px;
+
+  line-height:.9;
+
+  letter-spacing:-2px;
+
+  font-weight:500;
+
+}
+
+.campaign-text p{
+
+  max-width:450px;
+
+  margin-top:18px;
+
+  color:#bbb;
+
+  font-size:10px;
+  line-height:1.8;
+
+}
+
+
+/* =========================
+LOOKBOOK
+========================= */
+
+.lookbook{
+
+  background:#050505;
+
+}
+
+.look-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    1.25fr .85fr;
+
+  gap:7px;
+
+}
+
+.look-main{
+
+  height:520px;
+
+  overflow:hidden;
+
+  background:#111;
+
+}
+
+.look-main img{
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+}
+
+.look-side{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:7px;
+
+}
+
+.look-small{
+
+  height:256.5px;
+
+  overflow:hidden;
+
+  background:#111;
+
+}
+
+.look-small img{
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+}
+
+
+/* =========================
+DROP 002
+========================= */
+
+.drop-two{
+
+  position:relative;
+
+  min-height:72svh;
+
+  overflow:hidden;
+
+}
+
+.drop-two img{
+
+  position:absolute;
+
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  filter:
+    grayscale(1);
+
+  opacity:.38;
+
+}
+
+.drop-two:after{
+
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,.96),
+      rgba(0,0,0,.1)
+    );
+
+}
+
+.drop-two-content{
+
+  position:absolute;
+
+  z-index:2;
+
+  left:18px;
+  right:18px;
+  bottom:38px;
+
+}
+
+.drop-two-content small{
+
+  color:#bbb;
+
+  font-size:7px;
+  letter-spacing:3.5px;
+
+}
+
+.drop-two-content h2{
+
+  margin-top:13px;
+
+  font-size:56px;
+
+  line-height:.88;
+
+  font-weight:500;
+
+  letter-spacing:-2px;
+
+}
+
+.soon{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  min-height:39px;
+
+  margin-top:22px;
+
+  padding:0 13px;
+
+  border:
+    1px solid rgba(255,255,255,.4);
+
+  font-size:7px;
+  letter-spacing:3px;
+
+}
+
+
+/* =========================
+STORY
+========================= */
+
+.story{
+
+  position:relative;
+
+  padding:90px 18px;
+
+  overflow:hidden;
+
+  background:#090909;
+
+}
+
+.story-bg{
+
+  position:absolute;
+
+  top:30px;
+  right:-25px;
+
+  font-size:190px;
+
+  font-weight:900;
+
+  color:#0d0d0d;
+
+}
+
+.story-content{
+
+  position:relative;
+
+  z-index:2;
+
+}
+
+.story-content small{
+
+  color:#666;
+
+  font-size:7px;
+  letter-spacing:3.5px;
+
+}
+
+.story-content h2{
+
+  margin-top:24px;
+
+  font-size:49px;
+
+  line-height:.9;
+
+  font-weight:500;
+
+  letter-spacing:-2px;
+
+}
+
+.story-content p{
+
+  max-width:520px;
+
+  margin-top:25px;
+
+  color:#8b8b8b;
+
+  font-size:10px;
+  line-height:1.9;
+
+}
+
+
+/* =========================
+FABRIC
+========================= */
+
+.details{
+
+  background:#f3f3ef;
+  color:#050505;
+
+}
+
+.detail-image{
+
+  min-height:420px;
+
+  overflow:hidden;
+
+  background:#ddd;
+
+}
+
+.detail-image img{
+
+  height:420px;
+
+  object-fit:cover;
+
+}
+
+.detail-content{
+
+  padding:50px 18px 65px;
+
+}
+
+.detail-content h2{
+
+  font-size:38px;
+
+  line-height:.98;
+
+  font-weight:500;
+
+  letter-spacing:-1.4px;
+
+}
+
+.detail-content p{
+
+  margin-top:18px;
+
+  color:#666;
+
+  font-size:10px;
+  line-height:1.8;
+
+}
+
+.specs{
+
+  margin-top:32px;
+
+  border-top:
+    1px solid #ccc;
+
+}
+
+.spec{
+
+  min-height:62px;
+
+  display:flex;
+
+  justify-content:space-between;
+  align-items:center;
+
+  border-bottom:
+    1px solid #ccc;
+
+  font-size:8px;
+  letter-spacing:1.4px;
+
+}
+
+.spec span:last-child{
+
+  color:#777;
+
+}
+
+
+/* =========================
+LABEL
+========================= */
+
+.label-section{
+
+  padding:70px 13px;
+
+}
+
+.label-grid{
+
+  display:grid;
+
+  gap:28px;
+
+}
+
+.label-img{
+
+  overflow:hidden;
+
+  background:#111;
+
+}
+
+.label-img img{
+
+  max-height:620px;
+
+  object-fit:cover;
+
+}
+
+.label-copy small{
+
+  color:#666;
+
+  font-size:7px;
+  letter-spacing:3px;
+
+}
+
+.label-copy h2{
+
+  margin-top:15px;
+
+  font-size:40px;
+
+  line-height:.95;
+
+  font-weight:500;
+
+  letter-spacing:-1.5px;
+
+}
+
+.label-copy p{
+
+  margin-top:20px;
+
+  color:#888;
+
+  font-size:10px;
+  line-height:1.8;
+
+}
+
+
+/* =========================
+INSTAGRAM
+========================= */
+
+.instagram{
+
+  background:#f4f3ef;
+
+  color:#050505;
+
+  text-align:center;
+
+  overflow:hidden;
+
+}
+
+.instagram-inner{
+
+  padding:68px 16px 58px;
+
+}
+
+.instagram small{
+
+  display:block;
+
+  color:#777;
+
+  font-size:7px;
+  letter-spacing:4px;
+
+}
+
+.instagram h2{
+
+  margin-top:22px;
+
+  font-size:48px;
+
+  line-height:.95;
+
+  font-weight:500;
+
+  letter-spacing:-2px;
+
+}
+
+.insta-line{
+
+  width:40px;
+  height:1px;
+
+  margin:27px auto;
+
+  background:#050505;
+
+}
+
+.instagram p{
+
+  margin-bottom:29px;
+
+  color:#777;
+
+  font-size:9px;
+  line-height:1.8;
+
+}
+
+.instagram-btn{
+
+  width:100%;
+
+  max-width:390px;
+
+  min-height:64px;
+
+  margin:auto;
+
+  padding:0 14px;
+
+  display:grid;
+
+  grid-template-columns:
+    40px 1fr 40px;
+
+  align-items:center;
+
+  border:
+    1px solid #050505;
+
+  font-size:9px;
+  letter-spacing:4px;
+
+  transition:.25s ease;
+
+}
+
+.instagram-btn:hover{
+
+  background:#050505;
+  color:#fff;
+
+}
+
+.instagram-icon{
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+}
+
+.insta-arrow{
+
+  font-size:20px;
+
+  font-weight:300;
+
+}
+
+.instagram-strip{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(5,1fr);
+
+  gap:2px;
+
+  padding:0 2px 2px;
+
+}
+
+.instagram-strip img{
+
+  width:100%;
+
+  aspect-ratio:2/3;
+
+  object-fit:cover;
+
+  background:#ddd;
+
+}
+
+
+/* =========================
+FOOTER
+========================= */
+
+.footer{
+
+  padding:70px 18px 28px;
+
+}
+
+.footer-logo{
+
+  font-size:16.5vw;
+
+  line-height:.8;
+
+  font-weight:900;
+
+  letter-spacing:-.9vw;
+
+  white-space:nowrap;
+
+}
+
+.footer-tag{
+
+  margin-top:20px;
+
+  color:#555;
+
+  font-size:7px;
+  letter-spacing:3.5px;
+
+}
+
+.footer-grid{
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:35px;
+
+  margin-top:50px;
+
+}
+
+.footer-title{
+
+  margin-bottom:16px;
+
+  color:#555;
+
+  font-size:7px;
+  letter-spacing:3px;
+
+}
+
+.footer a,
+.footer button{
+
+  display:block;
+
+  margin-bottom:13px;
+
+  padding:0;
+
+  border:0;
+
+  background:none;
+
+  color:#bbb;
+
+  font-size:9px;
+
+}
+
+.footer-bottom{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  gap:15px;
+
+  margin-top:40px;
+
+  padding-top:18px;
+
+  border-top:1px solid #1c1c1c;
+
+  color:#555;
+
+  font-size:6px;
+  letter-spacing:1.8px;
+
+}
+
+
+/* =========================
+DRAWERS
+========================= */
+
+.overlay{
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:1200;
+
+  background:
+    rgba(0,0,0,.65);
+
+  opacity:0;
+  visibility:hidden;
+
+  transition:.3s;
+
+}
+
+.overlay.active{
+
+  opacity:1;
+  visibility:visible;
+
+}
+
+.drawer{
+
+  position:fixed;
+
+  top:0;
+  bottom:0;
+
+  z-index:1300;
+
+  width:94%;
+
+  max-width:450px;
+
+  overflow-y:auto;
+
+  background:#f4f4f0;
+  color:#050505;
+
+  transition:.42s;
+
+}
+
+.menu{
+
+  left:-100%;
+
+}
+
+.menu.active{
+
+  left:0;
+
+}
+
+.cart{
+
+  right:-100%;
+
+}
+
+.cart.active{
+
+  right:0;
+
+}
+
+.drawer-head{
+
+  height:70px;
+
+  padding:0 18px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:space-between;
+
+  border-bottom:
+    1px solid #ddd;
+
+}
+
+.drawer-head strong{
+
+  font-size:9px;
+  letter-spacing:3px;
+
+}
+
+.close{
+
+  border:0;
+
+  background:none;
+
+  color:#000;
+
+  font-size:29px;
+
+}
+
+.menu-links{
+
+  padding:43px 19px;
+
+}
+
+.menu-links a,
+.menu-links button{
+
+  width:100%;
+
+  min-height:65px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:space-between;
+
+  border:0;
+  border-bottom:
+    1px solid #d5d5d1;
+
+  background:none;
+
+  color:#050505;
+
+  font-size:25px;
+
+  text-align:left;
+
+}
+
+.menu-links small{
+
+  color:#888;
+
+  font-size:7px;
+  letter-spacing:2px;
+
+}
+
+
+/* =========================
+PRODUCT PAGE
+========================= */
+
+.product-page{
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:2200;
+
+  overflow-y:auto;
+
+  background:#f3f3ef;
+  color:#050505;
+
+  opacity:0;
+  visibility:hidden;
+
+  transform:
+    translateY(20px);
+
+  transition:.35s;
+
+}
+
+.product-page.active{
+
+  opacity:1;
+  visibility:visible;
+
+  transform:none;
+
+}
+
+.product-close{
+
+  position:fixed;
+
+  top:13px;
+  right:13px;
+
+  z-index:2250;
+
+  width:46px;
+  height:46px;
+
+  border:0;
+
+  background:#fff;
+  color:#000;
+
+  font-size:27px;
+
+}
+
+.product-gallery{
+
+  position:relative;
+
+  background:#ddd;
+
+}
+
+.product-gallery img{
+
+  height:58svh;
+
+  min-height:430px;
+
+  object-fit:cover;
+
+}
+
+.gallery-switch{
+
+  position:absolute;
+
+  bottom:11px;
+  left:11px;
+
+  display:flex;
+
+  gap:5px;
+
+}
+
+.gallery-switch button{
+
+  padding:9px 11px;
+
+  border:0;
+
+  background:
+    rgba(255,255,255,.92);
+
+  font-size:7px;
+  letter-spacing:1.3px;
+
+}
+
+.gallery-switch button.active{
+
+  background:#050505;
+  color:#fff;
+
+}
+
+.product-panel{
+
+  padding:27px 18px 90px;
+
+}
+
+.product-code{
+
+  color:#888;
+
+  font-size:7px;
+  letter-spacing:3px;
+
+}
+
+.product-panel h2{
+
+  margin-top:11px;
+
+  font-size:29px;
+  font-weight:500;
+
+}
+
+.product-price-big{
+
+  margin-top:8px;
+
+  font-size:11px;
+
+}
+
+.product-description{
+
+  margin-top:21px;
+
+  color:#666;
+
+  font-size:10px;
+  line-height:1.8;
+
+}
+
+.option-label{
+
+  margin-top:27px;
+  margin-bottom:10px;
+
+  font-size:7px;
+  letter-spacing:2px;
+
+}
+
+.sizes{
+
+  display:flex;
+
+  gap:7px;
+
+}
+
+.size{
+
+  width:54px;
+  height:45px;
+
+  border:
+    1px solid #bbb;
+
+  background:none;
+  color:#000;
+
+  font-size:9px;
+
+}
+
+.size.active{
+
+  background:#050505;
+  color:#fff;
+
+  border-color:#050505;
+
+}
+
+.add-btn{
+
+  width:100%;
+  height:57px;
+
+  margin-top:25px;
+
+  border:0;
+
+  background:#050505;
+  color:#fff;
+
+  font-size:8px;
+  letter-spacing:2.3px;
+
+}
+
+.size-link{
+
+  margin-top:18px;
+
+  border:0;
+
+  background:none;
+
+  color:#555;
+
+  text-decoration:underline;
+
+  font-size:8px;
+
+}
+
+.product-specs{
+
+  margin-top:28px;
+
+  border-top:
+    1px solid #ccc;
+
+}
+
+.product-spec{
+
+  min-height:55px;
+
+  display:flex;
+
+  justify-content:space-between;
+  align-items:center;
+
+  border-bottom:
+    1px solid #ccc;
+
+  font-size:8px;
+  letter-spacing:1.2px;
+
+}
+
+
+/* =========================
+CART
+========================= */
+
+.cart-inner{
+
+  padding:0 18px 35px;
+
+}
+
+.empty{
+
+  height:250px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  color:#888;
+
+  font-size:9px;
+
+}
+
+.cart-item{
+
+  display:grid;
+
+  grid-template-columns:
+    80px 1fr;
+
+  gap:12px;
+
+  padding:16px 0;
+
+  border-bottom:
+    1px solid #ddd;
+
+}
+
+.cart-item img{
+
+  width:80px;
+  height:106px;
+
+  object-fit:cover;
+
+}
+
+.cart-name{
+
+  font-size:9px;
+
+}
+
+.cart-meta{
+
+  margin-top:4px;
+
+  color:#888;
+
+  font-size:8px;
+
+}
+
+.cart-price{
+
+  margin-top:7px;
+
+  font-size:9px;
+
+}
+
+.cart-actions{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  margin-top:10px;
+
+}
+
+.qty{
+
+  display:flex;
+
+  border:
+    1px solid #ccc;
+
+}
+
+.qty button,
+.qty span{
+
+  width:28px;
+  height:28px;
+
+  border:0;
+
+  background:none;
+
+  color:#000;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  font-size:9px;
+
+}
+
+.remove{
+
+  border:0;
+
+  background:none;
+
+  color:#777;
+
+  text-decoration:underline;
+
+  font-size:7px;
+
+}
+
+.cart-summary{
+
+  padding-top:21px;
+
+}
+
+.cart-total{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  font-size:11px;
+
+}
+
+.cart-note{
+
+  margin-top:9px;
+
+  color:#888;
+
+  font-size:7px;
+  line-height:1.6;
+
+}
+
+.checkout-btn{
+
+  width:100%;
+  height:56px;
+
+  margin-top:17px;
+
+  border:0;
+
+  background:#050505;
+  color:#fff;
+
+  font-size:8px;
+  letter-spacing:2.3px;
+
+}
+
+
+/* =========================
+CHECKOUT
+========================= */
+
+.checkout{
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:3000;
+
+  overflow-y:auto;
+
+  background:#f4f4f0;
+  color:#050505;
+
+  opacity:0;
+  visibility:hidden;
+
+  transition:.3s;
+
+}
+
+.checkout.active{
+
+  opacity:1;
+  visibility:visible;
+
+}
+
+.checkout-head{
+
+  position:sticky;
+
+  top:0;
+
+  z-index:20;
+
+  height:70px;
+
+  padding:0 18px;
+
+  display:flex;
+
+  justify-content:space-between;
+  align-items:center;
+
+  background:#fff;
+
+  border-bottom:
+    1px solid #ddd;
+
+}
+
+.checkout-head strong{
+
+  font-size:9px;
+  letter-spacing:2.8px;
+
+}
+
+.checkout-wrap{
+
+  max-width:650px;
+
+  margin:auto;
+
+  padding:29px 16px 75px;
+
+}
+
+.checkout-wrap h2{
+
+  font-size:29px;
+  font-weight:500;
+
+}
+
+.checkout-copy{
+
+  margin-top:8px;
+  margin-bottom:27px;
+
+  color:#777;
+
+  font-size:9px;
+  line-height:1.7;
+
+}
+
+.field{
+
+  margin-bottom:10px;
+
+}
+
+.field label{
+
+  display:block;
+
+  margin-bottom:6px;
+
+  font-size:7px;
+  letter-spacing:1.5px;
+
+}
+
+.field input{
+
+  width:100%;
+  height:50px;
+
+  padding:0 12px;
+
+  border:
+    1px solid #ccc;
+
+  border-radius:0;
+
+  background:#fff;
+
+}
+
+.checkout-title{
+
+  margin:27px 0 12px;
+
+  font-size:7px;
+  letter-spacing:2.3px;
+
+}
+
+.payment{
+
+  margin-bottom:7px;
+
+  padding:16px;
+
+  border:
+    1px solid #ccc;
+
+  background:#fff;
+
+  font-size:9px;
+
+}
+
+.cliq{
+
+  display:none;
+
+  margin-top:14px;
+
+  padding-top:14px;
+
+  border-top:
+    1px solid #ddd;
+
+  color:#666;
+
+  font-size:8px;
+  line-height:1.7;
+
+}
+
+.cliq-row{
+
+  margin-top:11px;
+
+  padding:11px;
+
+  display:flex;
+
+  justify-content:space-between;
+  align-items:center;
+
+  background:#eee;
+
+}
+
+.copy-btn{
+
+  padding:9px 11px;
+
+  border:0;
+
+  background:#050505;
+  color:#fff;
+
+  font-size:7px;
+
+}
+
+.order-box{
+
+  margin-top:24px;
+
+  padding:15px;
+
+  background:#fff;
+
+}
+
+.order-row{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  gap:15px;
+
+  padding:10px 0;
+
+  border-bottom:
+    1px solid #eee;
+
+  font-size:8px;
+  line-height:1.6;
+
+}
+
+.order-total{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  margin-top:16px;
+
+  font-size:11px;
+
+}
+
+.place-order{
+
+  width:100%;
+  height:58px;
+
+  margin-top:17px;
+
+  border:0;
+
+  background:#050505;
+  color:#fff;
+
+  font-size:8px;
+  letter-spacing:2.2px;
+
+}
+
+
+/* =========================
+MODAL
+========================= */
+
+.modal{
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:4000;
+
+  display:flex;
+
+  align-items:flex-end;
+
+  background:
+    rgba(0,0,0,.7);
+
+  opacity:0;
+  visibility:hidden;
+
+  transition:.3s;
+
+}
+
+.modal.active{
+
+  opacity:1;
+  visibility:visible;
+
+}
+
+.modal-box{
+
+  width:100%;
+
+  max-height:85svh;
+
+  overflow:auto;
+
+  padding:22px 18px 34px;
+
+  background:#fff;
+  color:#050505;
+
+}
+
+.modal-head{
+
+  display:flex;
+
+  justify-content:space-between;
+  align-items:center;
+
+  margin-bottom:19px;
+
+}
+
+.modal-head h3{
+
+  font-size:15px;
+  font-weight:500;
+
+}
+
+.size-table{
+
+  width:100%;
+
+  border-collapse:collapse;
+
+  font-size:8px;
+
+}
+
+.size-table th,
+.size-table td{
+
+  padding:12px 4px;
+
+  border-bottom:
+    1px solid #ddd;
+
+  text-align:center;
+
+}
+
+.size-table th{
+
+  color:#777;
+
+  font-size:7px;
+
+}
+
+.modal-text{
+
+  margin-top:17px;
+
+  color:#666;
+
+  font-size:9px;
+  line-height:1.8;
+
+}
+
+
+/* =========================
+WHATSAPP
+========================= */
+
+.whatsapp{
+
+  position:fixed;
+
+  right:13px;
+  bottom:13px;
+
+  z-index:850;
+
+  width:50px;
+  height:50px;
+
+  border-radius:50%;
+
+  border:
+    1px solid #333;
+
+  background:#050505;
+  color:#fff;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  box-shadow:
+    0 5px 25px rgba(0,0,0,.28);
+
+}
+
+.whatsapp svg{
+
+  width:22px;
+  height:22px;
+
+}
+
+
+/* =========================
+TOAST
+========================= */
+
+.toast{
+
+  position:fixed;
+
+  left:50%;
+  bottom:18px;
+
+  z-index:6000;
+
+  padding:12px 16px;
+
+  transform:
+    translate(-50%,15px);
+
+  border:
+    1px solid #282828;
+
+  background:#050505;
+  color:#fff;
+
+  font-size:7px;
+  letter-spacing:1.7px;
+
+  white-space:nowrap;
+
+  opacity:0;
+  visibility:hidden;
+
+  transition:.25s;
+
+}
+
+.toast.show{
+
+  opacity:1;
+  visibility:visible;
+
+  transform:
+    translate(-50%,0);
+
+}
+
+
+/* =========================
+DESKTOP
+========================= */
+
+@media(min-width:900px){
+
+  .header{
+
+    height:82px;
+
+    padding:0 42px;
+
+  }
+
+  .hero-top{
+
+    top:103px;
+    left:52px;
+    right:52px;
+
+  }
+
+  .hero-content{
+
+    left:52px;
+    bottom:52px;
+
+  }
+
+  .hero h1{
+
+    font-size:110px;
+
+  }
+
+  .marquee{
+
+    min-height:300px;
+
+  }
+
+  .section,
+  .film{
+
+    padding:105px 42px;
+
+  }
+
+  .products{
+
+    grid-template-columns:
+      repeat(4,1fr);
+
+    gap:14px;
+
+  }
+
+  .campaign-text{
+
+    left:52px;
+    bottom:52px;
+
+  }
+
+  .campaign-text h2{
+
+    font-size:80px;
+
+  }
+
+  .look-grid{
+
+    gap:14px;
+
+  }
+
+  .look-side{
+
+    gap:14px;
+
+  }
+
+  .look-main{
+
+    height:830px;
+
+  }
+
+  .look-small{
+
+    height:408px;
+
+  }
+
+  .drop-two-content{
+
+    left:52px;
+    bottom:52px;
+
+  }
+
+  .drop-two-content h2{
+
+    font-size:85px;
+
+  }
+
+  .story{
+
+    padding:135px 52px;
+
+  }
+
+  .story-content h2{
+
+    font-size:82px;
+
+  }
+
+  .details-grid{
+
+    display:grid;
+
+    grid-template-columns:
+      1.15fr .85fr;
+
+    min-height:700px;
+
+  }
+
+  .detail-image,
+  .detail-image img{
+
+    min-height:700px;
+    height:700px;
+
+  }
+
+  .detail-content{
+
+    padding:80px 48px;
+
+    display:flex;
+
+    flex-direction:column;
+    justify-content:center;
+
+  }
+
+  .label-grid{
+
+    grid-template-columns:
+      1.15fr .85fr;
+
+    align-items:center;
+
+    gap:55px;
+
+    padding:35px;
+
+  }
+
+  .label-section{
+
+    padding:100px 42px;
+
+  }
+
+  .instagram-inner{
+
+    padding:90px 18px 78px;
+
+  }
+
+  .instagram h2{
+
+    font-size:70px;
+
+  }
+
+  .instagram-strip{
+
+    gap:3px;
+
+    padding:0 3px 3px;
+
+  }
+
+  .instagram-strip img{
+
+    aspect-ratio:3/4;
+
+  }
+
+  .product-layout{
+
+    display:grid;
+
+    grid-template-columns:
+      1.15fr .85fr;
+
+    min-height:100vh;
+
+  }
+
+  .product-gallery img{
+
+    height:100vh;
+
+  }
+
+  .product-panel{
+
+    padding:105px 48px;
+
+  }
+
+  .modal{
+
+    align-items:center;
+    justify-content:center;
+
+  }
+
+  .modal-box{
+
+    max-width:650px;
+
+  }
+
+  .footer{
+
+    padding:80px 45px 30px;
+
+  }
+
+}
+
+
+/* =========================
+SMALL PHONE
+========================= */
+
+@media(max-width:390px){
+
+  .hero h1{
+
+    font-size:55px;
+
+  }
+
+  .instagram h2{
+
+    font-size:42px;
+
+  }
+
+  .campaign-text h2{
+
+    font-size:42px;
+
+  }
+
+  .footer-logo{
+
+    font-size:16vw;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+LOADING
+========================= -->
+
+<div class="intro" id="intro">
+
+  <div class="intro-inner">
+
+    <div class="intro-logo">
+      BE GHAYR
+    </div>
+
+    <div class="intro-code">
+      001
+    </div>
+
+    <div class="intro-line">
+      <span></span>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+HEADER
+========================= -->
+
+<header class="header" id="header">
+
+  <button
+    class="icon-btn"
+    onclick="openMenu()"
+    aria-label="Menu"
+  >
+
+    <svg
+      width="23"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+
+      <path
+        d="M3 7H21M3 12H21M3 17H21"
+        stroke="currentColor"
+        stroke-width="1.25"
+      />
+
+    </svg>
+
+  </button>
+
+
+  <a href="#" class="logo">
+
+    <strong>
+      BE GHAYR
+    </strong>
+
+    <small>
+      001
+    </small>
+
+  </a>
+
+
+  <div class="header-right">
+
+    <button
+      class="icon-btn cart-wrap"
+      onclick="openCart()"
+      aria-label="Cart"
+    >
+
+      <svg
+        width="22"
+        viewBox="0 0 24 24"
+        fill="none"
+      >
+
+        <path
+          d="M5 7H19L18 20H6L5 7Z"
+          stroke="currentColor"
+          stroke-width="1.2"
+        />
+
+        <path
+          d="M9 8V5.5C9 3.5 10.3 2 12 2C13.7 2 15 3.5 15 5.5V8"
+          stroke="currentColor"
+          stroke-width="1.2"
+        />
+
+      </svg>
+
+      <span
+        class="cart-count"
+        id="cartCount"
+      >
+        0
+      </span>
+
+    </button>
+
+  </div>
+
+</header>
+
+
+<!-- =========================
+HERO
+========================= -->
+
+<section class="hero">
+
+  <img
+    src="hero.PNG"
+    alt="BE GHAYR"
+  >
+
+  <div class="hero-overlay"></div>
+
+
+  <div class="hero-top">
+
+    <span>
+      BE GHAYR / DROP 001
+    </span>
+
+    <span>
+      AMMAN — JORDAN
+    </span>
+
+  </div>
+
+
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      DROP 001 — NOW LIVE
+    </div>
+
+
+    <h1>
+      NO<br>
+      STANDARD.
+    </h1>
+
+
+    <p>
+
+      A different direction in oversized streetwear.
+      Built through form, weight and identity.
+
+    </p>
+
+
+    <div class="hero-buttons">
+
+      <a
+        href="#drop001"
+        class="btn-white"
+      >
+        SHOP DROP 001
+      </a>
+
+      <a
+        href="#drop002"
+        class="btn-outline"
+      >
+        DROP 002
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+MARQUEE
+========================= -->
+
+<section class="marquee">
+
+  <div class="marquee-track">
+
+    <span>
+      BE GHAYR&nbsp;&nbsp;BE GHAYR&nbsp;&nbsp;
+    </span>
+
+    <span>
+      BE GHAYR&nbsp;&nbsp;BE GHAYR&nbsp;&nbsp;
+    </span>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+DROP 001
+========================= -->
+
+<section
+  class="section drop-one"
+  id="drop001"
+>
+
+  <div class="section-head">
+
+    <div>
+
+      <div class="kicker">
+        THE FIRST RELEASE
+      </div>
+
+      <h2>
+        DROP 001
+      </h2>
+
+    </div>
+
+    <div class="section-no">
+      LIVE / 001
+    </div>
+
+  </div>
+
+
+  <div
+    class="products"
+    id="products"
+  ></div>
+
+</section>
+
+
+<!-- =========================
+CAMPAIGN FILM
+========================= -->
+
+<section class="film">
+
+  <div class="film-head">
+
+    <div>
+
+      <small>
+        BE GHAYR / 001
+      </small>
+
+      <h2>
+        CAMPAIGN FILM
+      </h2>
+
+    </div>
+
+    <div class="film-number">
+      01 / FILM
+    </div>
+
+  </div>
+
+
+  <video
+    controls
+    playsinline
+    preload="metadata"
+    poster="hero.PNG"
+  >
+
+    <source
+      src="hero-video.MP4"
+      type="video/mp4"
+    >
+
+  </video>
+
+</section>
+
+
+<!-- =========================
+CAMPAIGN
+========================= -->
+
+<section class="campaign">
+
+  <img
+    src="campaign.jpg.PNG"
+    alt="BE GHAYR Campaign"
+  >
+
+
+  <div class="campaign-text">
+
+    <small>
+      THE CAMPAIGN / 001
+    </small>
+
+
+    <h2>
+
+      DEVIATE<br>
+      FROM THE<br>
+      EXPECTED.
+
+    </h2>
+
+
+    <p>
+
+      Oversized proportions, heavyweight construction
+      and a visual identity built around individuality.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+LOOKBOOK
+========================= -->
+
+<section
+  class="section lookbook"
+  id="lookbook"
+>
+
+  <div class="section-head">
+
+    <div>
+
+      <div class="kicker">
+        CAMPAIGN EDITORIAL
+      </div>
+
+      <h2>
+        LOOKBOOK 001
+      </h2>
+
+    </div>
+
+    <div class="section-no">
+      01 — 03
+    </div>
+
+  </div>
+
+
+  <div class="look-grid">
+
+    <div class="look-main">
+
+      <img
+        src="lookbook-01.jpg.PNG"
+        alt="BE GHAYR Lookbook"
+      >
+
+    </div>
+
+
+    <div class="look-side">
+
+      <div class="look-small">
+
+        <img
+          src="hero.PNG"
+          alt="BE GHAYR"
+        >
+
+      </div>
+
+
+      <div class="look-small">
+
+        <img
+          src="campaign.jpg.PNG"
+          alt="BE GHAYR"
+        >
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+DROP 002
+========================= -->
+
+<section
+  class="drop-two"
+  id="drop002"
+>
+
+  <img
+    src="hero.PNG"
+    alt="DROP 002"
+  >
+
+
+  <div class="drop-two-content">
+
+    <small>
+      THE NEXT CHAPTER
+    </small>
+
+    <h2>
+      DROP 002
+    </h2>
+
+    <div class="soon">
+      COMING SOON
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+STORY
+========================= -->
+
+<section
+  class="story"
+  id="story"
+>
+
+  <div class="story-bg">
+    001
+  </div>
+
+
+  <div class="story-content">
+
+    <small>
+      BE GHAYR / THE STORY OF 001
+    </small>
+
+
+    <h2>
+
+      DIFFERENT<br>
+      BY DESIGN.
+
+    </h2>
+
+
+    <p>
+
+      BE GHAYR exists to move outside the expected.
+      DROP 001 begins with oversized proportions,
+      heavyweight construction and a minimal visual
+      language built around individuality.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+FABRIC
+========================= -->
+
+<section class="details">
+
+  <div class="details-grid">
+
+    <div class="detail-image">
+
+      <img
+        src="fabric.jpg.PNG"
+        alt="BE GHAYR Fabric"
+      >
+
+    </div>
+
+
+    <div class="detail-content">
+
+      <div class="kicker">
+        CONSTRUCTION / 001
+      </div>
+
+
+      <h2>
+
+        BUILT<br>
+        WITH WEIGHT.
+
+      </h2>
+
+
+      <p>
+
+        Heavyweight jersey cotton developed for an oversized
+        silhouette with structure, drape and presence.
+
+      </p>
+
+
+      <div class="specs">
+
+        <div class="spec">
+
+          <span>
+            FABRIC
+          </span>
+
+          <span>
+            100% COTTON
+          </span>
+
+        </div>
+
+
+        <div class="spec">
+
+          <span>
+            WEIGHT
+          </span>
+
+          <span>
+            280 GSM
+          </span>
+
+        </div>
+
+
+        <div class="spec">
+
+          <span>
+            FIT
+          </span>
+
+          <span>
+            OVERSIZED
+          </span>
+
+        </div>
+
+
+        <div class="spec">
+
+          <span>
+            COLLECTION
+          </span>
+
+          <span>
+            DROP 001
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+LABEL
+========================= -->
+
+<section class="label-section">
+
+  <div class="label-grid">
+
+    <div class="label-img">
+
+      <img
+        src="label.PNG.PNG"
+        alt="BE GHAYR 001 Label"
+      >
+
+    </div>
+
+
+    <div class="label-copy">
+
+      <small>
+        IDENTITY / DETAILS
+      </small>
+
+
+      <h2>
+
+        BE GHAYR<br>
+        001.
+
+      </h2>
+
+
+      <p>
+
+        Every piece carries the BE GHAYR / 001 identity,
+        connecting the first release through product,
+        construction and detail.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+INSTAGRAM
+========================= -->
+
+<section class="instagram">
+
+  <div class="instagram-inner">
+
+    <small>
+      FOLLOW THE JOURNEY
+    </small>
+
+
+    <h2>
+      @BEGHAYR.JO
+    </h2>
+
+
+    <div class="insta-line"></div>
+
+
+    <p>
+
+      New releases, campaign visuals,<br>
+      product details and behind the scenes.
+
+    </p>
+
+
+    <a
+      href="https://www.instagram.com/beghayr.jo/"
+      target="_blank"
+      class="instagram-btn"
+    >
+
+      <span class="instagram-icon">
+
+        <svg
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="none"
+        >
+
+          <rect
+            x="3"
+            y="3"
+            width="18"
+            height="18"
+            rx="5"
+            stroke="currentColor"
+            stroke-width="1.6"
+          />
+
+          <circle
+            cx="12"
+            cy="12"
+            r="4"
+            stroke="currentColor"
+            stroke-width="1.6"
+          />
+
+          <circle
+            cx="17.4"
+            cy="6.7"
+            r="1"
+            fill="currentColor"
+          />
+
+        </svg>
+
+      </span>
+
+
+      <span>
+        INSTAGRAM
+      </span>
+
+
+      <span class="insta-arrow">
+        ↗
+      </span>
+
+    </a>
+
+  </div>
+
+
+  <div class="instagram-strip">
+
+    <img
+      src="label.PNG.PNG"
+      alt="BE GHAYR"
+    >
+
+    <img
+      src="lookbook-01.jpg.PNG"
+      alt="BE GHAYR"
+    >
+
+    <img
+      src="fabric.jpg.PNG"
+      alt="BE GHAYR"
+    >
+
+    <img
+      src="campaign.jpg.PNG"
+      alt="BE GHAYR"
+    >
+
+    <img
+      src="product-01-front.PNG.PNG"
+      alt="BE GHAYR"
+    >
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+FOOTER
+========================= -->
+
+<footer class="footer">
+
+  <div class="footer-logo">
+    BE GHAYR
+  </div>
+
+
+  <div class="footer-tag">
+    DEVIATE FROM THE EXPECTED.
+  </div>
+
+
+  <div class="footer-grid">
+
+    <div>
+
+      <div class="footer-title">
+        EXPLORE
+      </div>
+
+      <a href="#drop001">
+        DROP 001
+      </a>
+
+      <a href="#drop002">
+        DROP 002
+      </a>
+
+      <a href="#lookbook">
+        LOOKBOOK
+      </a>
+
+      <a href="#story">
+        STORY
+      </a>
+
+      <button onclick="openSize()">
+        SIZE GUIDE
+      </button>
+
+    </div>
+
+
+    <div>
+
+      <div class="footer-title">
+        CONNECT
+      </div>
+
+
+      <a
+        href="https://www.instagram.com/beghayr.jo/"
+        target="_blank"
+      >
+        INSTAGRAM
+      </a>
+
+
+      <a
+        href="https://wa.me/962779283212"
+        target="_blank"
+      >
+        WHATSAPP
+      </a>
+
+
+      <button onclick="openShipping()">
+        SHIPPING & RETURNS
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div class="footer-bottom">
+
+    <span>
+      © 2026 BE GHAYR
+    </span>
+
+    <span>
+      001 / AMMAN
+    </span>
+
+  </div>
+
+</footer>
+
+
+<!-- =========================
+OVERLAY
+========================= -->
+
+<div
+  class="overlay"
+  id="overlay"
+  onclick="closeDrawers()"
+></div>
+
+
+<!-- =========================
+MENU
+========================= -->
+
+<aside
+  class="drawer menu"
+  id="menu"
+>
+
+  <div class="drawer-head">
+
+    <strong>
+      BE GHAYR / 001
+    </strong>
+
+    <button
+      class="close"
+      onclick="closeDrawers()"
+    >
+      ×
+    </button>
+
+  </div>
+
+
+  <div class="menu-links">
+
+    <a
+      href="#drop001"
+      onclick="closeDrawers()"
+    >
+
+      DROP 001
+
+      <small>
+        LIVE
+      </small>
+
+    </a>
+
+
+    <a
+      href="#drop002"
+      onclick="closeDrawers()"
+    >
+
+      DROP 002
+
+      <small>
+        SOON
+      </small>
+
+    </a>
+
+
+    <a
+      href="#lookbook"
+      onclick="closeDrawers()"
+    >
+
+      LOOKBOOK
+
+      <small>
+        001
+      </small>
+
+    </a>
+
+
+    <a
+      href="#story"
+      onclick="closeDrawers()"
+    >
+
+      STORY
+
+      <small>
+        001
+      </small>
+
+    </a>
+
+
+    <button onclick="openSize()">
+
+      SIZE GUIDE
+
+      <small>
+        ↗
+      </small>
+
+    </button>
+
+
+    <a
+      href="https://www.instagram.com/beghayr.jo/"
+      target="_blank"
+    >
+
+      INSTAGRAM
+
+      <small>
+        ↗
+      </small>
+
+    </a>
+
+
+    <a
+      href="https://wa.me/962779283212"
+      target="_blank"
+    >
+
+      WHATSAPP
+
+      <small>
+        ↗
+      </small>
+
+    </a>
+
+  </div>
+
+</aside>
+
+
+<!-- =========================
+CART
+========================= -->
+
+<aside
+  class="drawer cart"
+  id="cart"
+>
+
+  <div class="drawer-head">
+
+    <strong>
+
+      CART /
+
+      <span id="cartHeadCount">
+        0
+      </span>
+
+    </strong>
+
+
+    <button
+      class="close"
+      onclick="closeCart()"
+    >
+      ×
+    </button>
+
+  </div>
+
+
+  <div class="cart-inner">
+
+    <div id="cartItems"></div>
+
+
+    <div
+      class="cart-summary"
+      id="cartSummary"
+    >
+
+      <div class="cart-total">
+
+        <span>
+          SUBTOTAL
+        </span>
+
+        <strong id="cartSubtotal">
+          0 JOD
+        </strong>
+
+      </div>
+
+
+      <p class="cart-note">
+
+        Delivery cost is confirmed before
+        final order confirmation.
+
+      </p>
+
+
+      <button
+        class="checkout-btn"
+        onclick="openCheckout()"
+      >
+        CHECKOUT
+      </button>
+
+    </div>
+
+  </div>
+
+</aside>
+
+
+<!-- =========================
+PRODUCT PAGE
+========================= -->
+
+<section
+  class="product-page"
+  id="productPage"
+>
+
+  <button
+    class="product-close"
+    onclick="closeProduct()"
+  >
+    ×
+  </button>
+
+
+  <div class="product-layout">
+
+    <div class="product-gallery">
+
+      <img
+        id="productMainImage"
+        alt="BE GHAYR Product"
+      >
+
+
+      <div class="gallery-switch">
+
+        <button
+          id="frontBtn"
+          class="active"
+          onclick="switchImage('front')"
+        >
+          FRONT
+        </button>
+
+
+        <button
+          id="backBtn"
+          onclick="switchImage('back')"
+        >
+          BACK
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="product-panel">
+
+      <div class="product-code">
+        BE GHAYR / DROP 001
+      </div>
+
+
+      <h2 id="productTitle"></h2>
+
+
+      <div class="product-price-big">
+
+        <span id="productPrice"></span>
+
+        JOD
+
+      </div>
+
+
+      <p
+        class="product-description"
+        id="productDescription"
+      ></p>
+
+
+      <div class="option-label">
+
+        COLOR —
+
+        <span id="productColor"></span>
+
+      </div>
+
+
+      <div class="option-label">
+        SELECT SIZE
+      </div>
+
+
+      <div class="sizes">
+
+        <button
+          class="size"
+          onclick="selectSize(this,'S')"
+        >
+          S
+        </button>
+
+        <button
+          class="size"
+          onclick="selectSize(this,'M')"
+        >
+          M
+        </button>
+
+        <button
+          class="size"
+          onclick="selectSize(this,'L')"
+        >
+          L
+        </button>
+
+        <button
+          class="size"
+          onclick="selectSize(this,'XL')"
+        >
+          XL
+        </button>
+
+      </div>
+
+
+      <button
+        class="add-btn"
+        onclick="addCart()"
+      >
+        ADD TO CART
+      </button>
+
+
+      <button
+        class="size-link"
+        onclick="openSize()"
+      >
+        VIEW SIZE GUIDE
+      </button>
+
+
+      <div class="product-specs">
+
+        <div class="product-spec">
+
+          <span>
+            FIT
+          </span>
+
+          <span>
+            OVERSIZED
+          </span>
+
+        </div>
+
+
+        <div class="product-spec">
+
+          <span>
+            FABRIC
+          </span>
+
+          <span>
+            100% COTTON
+          </span>
+
+        </div>
+
+
+        <div class="product-spec">
+
+          <span>
+            WEIGHT
+          </span>
+
+          <span>
+            280 GSM
+          </span>
+
+        </div>
+
+
+        <div class="product-spec">
+
+          <span>
+            COLLECTION
+          </span>
+
+          <span>
+            DROP 001
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+CHECKOUT
+========================= -->
+
+<section
+  class="checkout"
+  id="checkout"
+>
+
+  <div class="checkout-head">
+
+    <strong>
+      BE GHAYR / CHECKOUT
+    </strong>
+
+
+    <button
+      class="close"
+      onclick="closeCheckout()"
+    >
+      ×
+    </button>
+
+  </div>
+
+
+  <div class="checkout-wrap">
+
+    <h2>
+      COMPLETE ORDER
+    </h2>
+
+
+    <p class="checkout-copy">
+
+      Enter your delivery information
+      and choose a payment method.
+
+    </p>
+
+
+    <div class="field">
+
+      <label>
+        FULL NAME
+      </label>
+
+      <input
+        id="customerName"
+        autocomplete="name"
+      >
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        PHONE NUMBER
+      </label>
+
+      <input
+        id="customerPhone"
+        type="tel"
+        autocomplete="tel"
+      >
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        CITY
+      </label>
+
+      <input
+        id="customerCity"
+        value="Amman"
+      >
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        AREA
+      </label>
+
+      <input id="customerArea">
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        FULL ADDRESS
+      </label>
+
+      <input
+        id="customerAddress"
+        autocomplete="street-address"
+      >
+
+    </div>
+
+
+    <div class="checkout-title">
+      PAYMENT METHOD
+    </div>
+
+
+    <div class="payment">
+
+      <label>
+
+        <input
+          type="radio"
+          name="payment"
+          value="Cash on Delivery"
+          checked
+          onchange="paymentChange()"
+        >
+
+        CASH ON DELIVERY
+
+      </label>
+
+    </div>
+
+
+    <div class="payment">
+
+      <label>
+
+        <input
+          type="radio"
+          name="payment"
+          value="CliQ"
+          onchange="paymentChange()"
+        >
+
+        CLIQ
+
+      </label>
+
+
+      <div
+        class="cliq"
+        id="cliqBox"
+      >
+
+        Transfer the order amount through CliQ.
+        Payment will be manually verified.
+
+
+        <div class="cliq-row">
+
+          <strong>
+            Zaid02R
+          </strong>
+
+
+          <button
+            class="copy-btn"
+            onclick="copyCliq()"
+          >
+            COPY
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="order-box">
+
+      <div id="checkoutProducts"></div>
+
+
+      <div class="order-total">
+
+        <span>
+          TOTAL
+        </span>
+
+        <strong id="checkoutTotal">
+          0 JOD
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <button
+      class="place-order"
+      onclick="placeOrder()"
+    >
+      PLACE ORDER VIA WHATSAPP
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+SIZE GUIDE
+========================= -->
+
+<div
+  class="modal"
+  id="sizeModal"
+>
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h3>
+        SIZE GUIDE
+      </h3>
+
+
+      <button
+        class="close"
+        onclick="closeSize()"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <table class="size-table">
+
+      <thead>
+
+        <tr>
+
+          <th>
+            SIZE
+          </th>
+
+          <th>
+            CHEST
+          </th>
+
+          <th>
+            LENGTH
+          </th>
+
+          <th>
+            SLEEVE
+          </th>
+
+        </tr>
+
+      </thead>
+
+
+      <tbody>
+
+        <tr>
+
+          <td>S</td>
+          <td>58 CM</td>
+          <td>70 CM</td>
+          <td>23 CM</td>
+
+        </tr>
+
+
+        <tr>
+
+          <td>M</td>
+          <td>61 CM</td>
+          <td>72 CM</td>
+          <td>24 CM</td>
+
+        </tr>
+
+
+        <tr>
+
+          <td>L</td>
+          <td>64 CM</td>
+          <td>74 CM</td>
+          <td>25 CM</td>
+
+        </tr>
+
+
+        <tr>
+
+          <td>XL</td>
+          <td>67 CM</td>
+          <td>76 CM</td>
+          <td>26 CM</td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+
+    <p class="modal-text">
+
+      Size measurements are temporary
+      until final production measurements
+      are confirmed.
+
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+SHIPPING
+========================= -->
+
+<div
+  class="modal"
+  id="shippingModal"
+>
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h3>
+        SHIPPING & RETURNS
+      </h3>
+
+
+      <button
+        class="close"
+        onclick="closeShipping()"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <p class="modal-text">
+
+      Delivery availability and delivery fees
+      are confirmed before final order confirmation.
+
+      <br><br>
+
+      For size questions, exchange requests
+      or order support, contact BE GHAYR
+      through WhatsApp.
+
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+WHATSAPP BUTTON
+========================= -->
+
+<a
+  class="whatsapp"
+  href="https://wa.me/962779283212?text=Hello%20BE%20GHAYR"
+  target="_blank"
+  aria-label="WhatsApp"
+>
+
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+  >
+
+    <path
+      d="M20.5 11.8A8.4 8.4 0 0 1 8 19.1L3.5 20.5L5 16.2A8.4 8.4 0 1 1 20.5 11.8Z"
+      stroke="currentColor"
+      stroke-width="1.4"
+    />
+
+    <path
+      d="M9 8.3C9.4 10.6 11.5 12.8 14 13.6"
+      stroke="currentColor"
+      stroke-width="1.4"
+      stroke-linecap="round"
+    />
+
+  </svg>
+
+</a>
+
+
+<div
+  class="toast"
+  id="toast"
+></div>
+
+
+<script>
+
+/* =========================
+PRODUCTS
+========================= */
+
+const products = [
+
+  {
+
+    id:1,
+
+    name:"NO STANDARD TEE",
+
+    color:"BLACK",
+
+    price:29,
+
+    front:"product-01-front.PNG.PNG",
+
+    back:"hero.PNG",
+
+    description:
+      "Heavyweight oversized T-shirt built with dropped shoulders, wide sleeves and the BE GHAYR / 001 identity."
+
+  },
+
+
+  {
+
+    id:2,
+
+    name:"001 OVERSIZED TEE",
+
+    color:"BONE",
+
+    price:29,
+
+    front:"hero.PNG",
+
+    back:"campaign.jpg.PNG",
+
+    description:
+      "A minimal oversized essential designed around structure, weight and relaxed proportions."
+
+  },
+
+
+  {
+
+    id:3,
+
+    name:"SIGNATURE TEE",
+
+    color:"CHARCOAL",
+
+    price:32,
+
+    front:"campaign.jpg.PNG",
+
+    back:"lookbook-01.jpg.PNG",
+
+    description:
+      "A heavyweight streetwear silhouette created for the first BE GHAYR release."
+
+  },
+
+
+  {
+
+    id:4,
+
+    name:"BE GHAYR ESSENTIAL",
+
+    color:"OFF WHITE",
+
+    price:32,
+
+    front:"lookbook-01.jpg.PNG",
+
+    back:"hero.PNG",
+
+    description:
+      "The BE GHAYR essential piece carrying the minimal identity of DROP 001."
+
+  }
+
+];
+
+
+/* =========================
+VARIABLES
+========================= */
+
+let cart =
+  JSON.parse(
+    localStorage.getItem("BG_FINAL_CART")
+  ) || [];
+
+
+let currentProduct = null;
+
+let selectedSize = "";
+
+
+/* =========================
+ELEMENTS
+========================= */
+
+const header =
+  document.getElementById("header");
+
+
+const menu =
+  document.getElementById("menu");
+
+
+const cartEl =
+  document.getElementById("cart");
+
+
+const overlay =
+  document.getElementById("overlay");
+
+
+const cartCount =
+  document.getElementById("cartCount");
+
+
+const cartHeadCount =
+  document.getElementById("cartHeadCount");
+
+
+const cartItems =
+  document.getElementById("cartItems");
+
+
+const cartSummary =
+  document.getElementById("cartSummary");
+
+
+const cartSubtotal =
+  document.getElementById("cartSubtotal");
+
+
+const productPage =
+  document.getElementById("productPage");
+
+
+const productTitle =
+  document.getElementById("productTitle");
+
+
+const productPrice =
+  document.getElementById("productPrice");
+
+
+const productColor =
+  document.getElementById("productColor");
+
+
+const productDescription =
+  document.getElementById("productDescription");
+
+
+const productMainImage =
+  document.getElementById("productMainImage");
+
+
+const frontBtn =
+  document.getElementById("frontBtn");
+
+
+const backBtn =
+  document.getElementById("backBtn");
+
+
+const checkout =
+  document.getElementById("checkout");
+
+
+const checkoutProducts =
+  document.getElementById("checkoutProducts");
+
+
+const checkoutTotal =
+  document.getElementById("checkoutTotal");
+
+
+const cliqBox =
+  document.getElementById("cliqBox");
+
+
+const customerName =
+  document.getElementById("customerName");
+
+
+const customerPhone =
+  document.getElementById("customerPhone");
+
+
+const customerCity =
+  document.getElementById("customerCity");
+
+
+const customerArea =
+  document.getElementById("customerArea");
+
+
+const customerAddress =
+  document.getElementById("customerAddress");
+
+
+const sizeModal =
+  document.getElementById("sizeModal");
+
+
+const shippingModal =
+  document.getElementById("shippingModal");
+
+
+const toast =
+  document.getElementById("toast");
+
+
+/* =========================
+LOADING
+========================= */
+
+window.addEventListener(
+  "load",
+  function(){
+
+    setTimeout(
+      function(){
+
+        const intro =
+          document.getElementById("intro");
+
+        if(intro){
+
+          intro.classList.add("hide");
+
+          setTimeout(
+            function(){
+
+              intro.style.display="none";
+
+            },
+            750
+          );
+
+        }
+
+      },
+      1500
+    );
+
+  }
+);
+
+
+/* =========================
+PRODUCT GRID
+========================= */
+
+function renderProducts(){
+
+  const container =
+    document.getElementById("products");
+
+
+  container.innerHTML="";
+
+
+  products.forEach(
+    function(product,index){
+
+      const card =
+        document.createElement("article");
+
+
+      card.className="product";
+
+
+      card.onclick =
+        function(){
+
+          openProduct(product.id);
+
+        };
+
+
+      card.innerHTML=`
+
+        <div class="product-img">
+
+          <img
+            src="${product.front}"
+            alt="${product.name}"
+            loading="lazy"
+          >
+
+          <span class="badge">
+
+            ${index===0
+              ? "DROP 001"
+              : "001"}
+
+          </span>
+
+        </div>
+
+
+        <div class="product-info">
+
+          <div class="product-name">
+
+            ${product.name}
+
+          </div>
+
+
+          <div class="product-color">
+
+            ${product.color}
+
+          </div>
+
+
+          <div class="product-line">
+
+            <strong>
+
+              ${product.price} JOD
+
+            </strong>
+
+
+            <span>
+
+              VIEW →
+
+            </span>
+
+          </div>
+
+        </div>
+
+      `;
+
+
+      container.appendChild(card);
+
+    }
+  );
+
+}
+
+
+/* =========================
+MENU
+========================= */
+
+function openMenu(){
+
+  menu.classList.add("active");
+
+  overlay.classList.add("active");
+
+  document.body.classList.add("lock");
+
+}
+
+
+function closeDrawers(){
+
+  menu.classList.remove("active");
+
+  cartEl.classList.remove("active");
+
+  overlay.classList.remove("active");
+
+  document.body.classList.remove("lock");
+
+}
+
+
+/* =========================
+PRODUCT PAGE
+========================= */
+
+function openProduct(id){
+
+  currentProduct =
+    products.find(
+      product => product.id===id
+    );
+
+
+  selectedSize="";
+
+
+  document
+    .querySelectorAll(".size")
+    .forEach(
+      button =>
+        button.classList.remove("active")
+    );
+
+
+  productTitle.innerText =
+    currentProduct.name;
+
+
+  productPrice.innerText =
+    currentProduct.price;
+
+
+  productColor.innerText =
+    currentProduct.color;
+
+
+  productDescription.innerText =
+    currentProduct.description;
+
+
+  switchImage("front");
+
+
+  productPage.classList.add("active");
+
+  document.body.classList.add("lock");
+
+}
+
+
+function closeProduct(){
+
+  productPage.classList.remove("active");
+
+  document.body.classList.remove("lock");
+
+}
+
+
+/* =========================
+PRODUCT IMAGE
+========================= */
+
+function switchImage(side){
+
+  if(!currentProduct){
+    return;
+  }
+
+
+  productMainImage.src =
+    side==="back"
+      ? currentProduct.back
+      : currentProduct.front;
+
+
+  frontBtn.classList.toggle(
+    "active",
+    side==="front"
+  );
+
+
+  backBtn.classList.toggle(
+    "active",
+    side==="back"
+  );
+
+}
+
+
+/* =========================
+SIZE
+========================= */
+
+function selectSize(
+  button,
+  size
+){
+
+  document
+    .querySelectorAll(".size")
+    .forEach(
+      item =>
+        item.classList.remove("active")
+    );
+
+
+  button.classList.add("active");
+
+
+  selectedSize=size;
+
+}
+
+
+/* =========================
+ADD CART
+========================= */
+
+function addCart(){
+
+  if(!selectedSize){
+
+    toastMsg(
+      "SELECT YOUR SIZE"
+    );
+
+    return;
+
+  }
+
+
+  const existing =
+    cart.find(
+      item =>
+        item.id===currentProduct.id &&
+        item.size===selectedSize
+    );
+
+
+  if(existing){
+
+    existing.quantity++;
+
+  }else{
+
+    cart.push({
+
+      id:currentProduct.id,
+
+      name:currentProduct.name,
+
+      color:currentProduct.color,
+
+      price:currentProduct.price,
+
+      front:currentProduct.front,
+
+      size:selectedSize,
+
+      quantity:1
+
+    });
+
+  }
+
+
+  saveCart();
+
+  closeProduct();
+
+  openCart();
+
+  toastMsg(
+    "ADDED TO CART"
+  );
+
+}
+
+
+/* =========================
+SAVE CART
+========================= */
+
+function saveCart(){
+
+  localStorage.setItem(
+    "BG_FINAL_CART",
+    JSON.stringify(cart)
+  );
+
+
+  updateCart();
+
+}
+
+
+/* =========================
+TOTALS
+========================= */
+
+function totalQuantity(){
+
+  return cart.reduce(
+    function(sum,item){
+
+      return sum+item.quantity;
+
+    },
+    0
+  );
+
+}
+
+
+function totalPrice(){
+
+  return cart.reduce(
+    function(sum,item){
+
+      return sum+
+        (
+          item.price *
+          item.quantity
+        );
+
+    },
+    0
+  );
+
+}
+
+
+/* =========================
+OPEN CART
+========================= */
+
+function openCart(){
+
+  updateCart();
+
+  cartEl.classList.add("active");
+
+  overlay.classList.add("active");
+
+  document.body.classList.add("lock");
+
+}
+
+
+function closeCart(){
+
+  cartEl.classList.remove("active");
+
+  overlay.classList.remove("active");
+
+  document.body.classList.remove("lock");
+
+}
+
+
+/* =========================
+QUANTITY
+========================= */
+
+function changeQty(
+  index,
+  amount
+){
+
+  cart[index].quantity += amount;
+
+
+  if(cart[index].quantity<=0){
+
+    cart.splice(index,1);
+
+  }
+
+
+  saveCart();
+
+}
+
+
+function removeCart(index){
+
+  cart.splice(index,1);
+
+  saveCart();
+
+}
+
+
+/* =========================
+RENDER CART
+========================= */
+
+function updateCart(){
+
+  cartCount.innerText =
+    totalQuantity();
+
+
+  cartHeadCount.innerText =
+    totalQuantity();
+
+
+  cartItems.innerHTML="";
+
+
+  if(!cart.length){
+
+    cartItems.innerHTML=`
+
+      <div class="empty">
+
+        YOUR CART IS EMPTY.
+
+      </div>
+
+    `;
+
+
+    cartSummary.style.display="none";
+
+
+    return;
+
+  }
+
+
+  cartSummary.style.display="block";
+
+
+  cart.forEach(
+    function(item,index){
+
+      cartItems.innerHTML+=`
+
+        <div class="cart-item">
+
+          <img
+            src="${item.front}"
+            alt="${item.name}"
+          >
+
+
+          <div>
+
+            <div class="cart-name">
+
+              ${item.name}
+
+            </div>
+
+
+            <div class="cart-meta">
+
+              ${item.color}
+              /
+              ${item.size}
+
+            </div>
+
+
+            <div class="cart-price">
+
+              ${item.price} JOD
+
+            </div>
+
+
+            <div class="cart-actions">
+
+              <div class="qty">
+
+                <button
+                  onclick="changeQty(${index},-1)"
+                >
+                  −
+                </button>
+
+
+                <span>
+
+                  ${item.quantity}
+
+                </span>
+
+
+                <button
+                  onclick="changeQty(${index},1)"
+                >
+                  +
+                </button>
+
+              </div>
+
+
+              <button
+                class="remove"
+                onclick="removeCart(${index})"
+              >
+
+                REMOVE
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      `;
+
+    }
+  );
+
+
+  cartSubtotal.innerText =
+    totalPrice()+" JOD";
+
+}
+
+
+/* =========================
+CHECKOUT
+========================= */
+
+function openCheckout(){
+
+  if(!cart.length){
+
+    toastMsg(
+      "YOUR CART IS EMPTY"
+    );
+
+    return;
+
+  }
+
+
+  closeCart();
+
+  renderCheckout();
+
+
+  checkout.classList.add("active");
+
+  document.body.classList.add("lock");
+
+}
+
+
+function closeCheckout(){
+
+  checkout.classList.remove("active");
+
+  document.body.classList.remove("lock");
+
+}
+
+
+/* =========================
+CHECKOUT ITEMS
+========================= */
+
+function renderCheckout(){
+
+  checkoutProducts.innerHTML="";
+
+
+  cart.forEach(
+    function(item){
+
+      checkoutProducts.innerHTML+=`
+
+        <div class="order-row">
+
+          <span>
+
+            ${item.quantity}
+            ×
+            ${item.name}
+
+            <br>
+
+            ${item.color}
+            /
+            ${item.size}
+
+          </span>
+
+
+          <strong>
+
+            ${item.price*item.quantity}
+            JOD
+
+          </strong>
+
+        </div>
+
+      `;
+
+    }
+  );
+
+
+  checkoutTotal.innerText =
+    totalPrice()+" JOD";
+
+}
+
+
+/* =========================
+PAYMENT
+========================= */
+
+function paymentChange(){
+
+  const payment =
+    document.querySelector(
+      'input[name="payment"]:checked'
+    ).value;
+
+
+  cliqBox.style.display =
+    payment==="CliQ"
+      ? "block"
+      : "none";
+
+}
+
+
+/* =========================
+COPY CLIQ
+========================= */
+
+async function copyCliq(){
+
+  try{
+
+    await navigator.clipboard.writeText(
+      "Zaid02R"
+    );
+
+
+    toastMsg(
+      "CLIQ ALIAS COPIED"
+    );
+
+  }catch(error){
+
+    toastMsg(
+      "CLIQ: Zaid02R"
+    );
+
+  }
+
+}
+
+
+/* =========================
+PLACE ORDER
+========================= */
+
+function placeOrder(){
+
+  const name =
+    customerName.value.trim();
+
+
+  const phone =
+    customerPhone.value.trim();
+
+
+  const city =
+    customerCity.value.trim();
+
+
+  const area =
+    customerArea.value.trim();
+
+
+  const address =
+    customerAddress.value.trim();
+
+
+  if(
+    !name ||
+    !phone ||
+    !city ||
+    !area ||
+    !address
+  ){
+
+    toastMsg(
+      "COMPLETE DELIVERY DETAILS"
+    );
+
+    return;
+
+  }
+
+
+  const payment =
+    document.querySelector(
+      'input[name="payment"]:checked'
+    ).value;
+
+
+  const orderID =
+    "BG-" +
+    Date.now()
+      .toString()
+      .slice(-6);
+
+
+  let productsText="";
+
+
+  cart.forEach(
+    function(item,index){
+
+      productsText+=`
+
+${index+1}. ${item.name}
+Color: ${item.color}
+Size: ${item.size}
+Quantity: ${item.quantity}
+Total: ${item.price*item.quantity} JOD
+
+`;
+
+    }
+  );
+
+
+  let message=`
+
+BE GHAYR — NEW ORDER
+
+━━━━━━━━━━━━━━
+
+ORDER:
+${orderID}
+
+CUSTOMER:
+${name}
+
+PHONE:
+${phone}
+
+CITY:
+${city}
+
+AREA:
+${area}
+
+ADDRESS:
+${address}
+
+━━━━━━━━━━━━━━
+
+PRODUCTS
+
+${productsText}
+
+━━━━━━━━━━━━━━
+
+TOTAL:
+${totalPrice()} JOD
+
+PAYMENT:
+${payment}
+
+`;
+
+
+  if(payment==="CliQ"){
+
+    message+=`
+
+CLIQ ALIAS:
+Zaid02R
+
+PAYMENT STATUS:
+PENDING VERIFICATION
+
+`;
+
+  }
+
+
+  message+=`
+
+━━━━━━━━━━━━━━
+
+BE GHAYR / 001
+
+`;
+
+
+  window.location.href=
+
+    "https://wa.me/962779283212?text=" +
+
+    encodeURIComponent(message);
+
+}
+
+
+/* =========================
+SIZE MODAL
+========================= */
+
+function openSize(){
+
+  closeDrawers();
+
+  sizeModal.classList.add("active");
+
+  document.body.classList.add("lock");
+
+}
+
+
+function closeSize(){
+
+  sizeModal.classList.remove("active");
+
+  document.body.classList.remove("lock");
+
+}
+
+
+/* =========================
+SHIPPING MODAL
+========================= */
+
+function openShipping(){
+
+  shippingModal.classList.add("active");
+
+  document.body.classList.add("lock");
+
+}
+
+
+function closeShipping(){
+
+  shippingModal.classList.remove("active");
+
+  document.body.classList.remove("lock");
+
+}
+
+
+/* =========================
+TOAST
+========================= */
+
+let toastTimeout;
+
+
+function toastMsg(text){
+
+  toast.innerText=text;
+
+
+  toast.classList.add("show");
+
+
+  clearTimeout(toastTimeout);
+
+
+  toastTimeout=
+    setTimeout(
+      function(){
+
+        toast.classList.remove("show");
+
+      },
+      1800
+    );
+
+}
+
+
+/* =========================
+HEADER SCROLL
+========================= */
+
+window.addEventListener(
+  "scroll",
+  function(){
+
+    header.classList.toggle(
+      "scrolled",
+      window.scrollY>35
+    );
+
+  }
+);
+
+
+/* =========================
+ESCAPE
+========================= */
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(event.key==="Escape"){
+
+      closeDrawers();
+      closeProduct();
+      closeCheckout();
+      closeSize();
+      closeShipping();
+
+    }
+
+  }
+);
+
+
+/* =========================
+START
+========================= */
+
+renderProducts();
+
+updateCart();
+
+</script>
+
+</body>
+
+</html>
